@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Les Amis de 1789 - Association d'Histoire Révolutionnaire</title>
+    <title>La Société des Amis de la Révolution Française (SARF) - Club René Levasseur de la Sarthe</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -41,11 +41,6 @@
         @keyframes pulse-gold {
             0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
             50% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
         }
 
         /* Modal/Overlay */
@@ -168,10 +163,10 @@
             align-items: center;
         }
 
-        /* Logo principal - Symbole révolutionnaire remplace la fleur de lys */
+        /* Logo principal - Bonnet phrygien */
         .logo {
             font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--or-ancien);
             text-decoration: none;
@@ -185,8 +180,7 @@
 
         .logo-icon {
             font-size: 2rem;
-            animation: float 3s ease-in-out infinite;
-            /* Remplacé : pas de fleur de lys, symbole révolutionnaire */
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
         }
 
         nav ul {
@@ -242,12 +236,12 @@
             cursor: pointer;
         }
 
-        /* Hero */
+        /* Hero avec Prise de la Bastille */
         .hero {
             margin-top: 140px;
             height: 90vh;
-            background: linear-gradient(rgba(27, 38, 59, 0.7), rgba(27, 38, 59, 0.8)), 
-                        url('https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            background: linear-gradient(rgba(27, 38, 59, 0.6), rgba(27, 38, 59, 0.7)), 
+                        url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Lallemand_-_Prise_de_la_Bastille.jpg/1280px-Lallemand_-_Prise_de_la_Bastille.jpg') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -264,7 +258,7 @@
 
         .hero h1 {
             font-family: 'Cinzel', serif;
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
@@ -361,18 +355,6 @@
             overflow: hidden;
         }
 
-        .levasseur-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23D4AF37" stroke-width="0.5" opacity="0.1"/></svg>');
-            background-size: 100px 100px;
-            opacity: 0.3;
-        }
-
         .levasseur-content {
             position: relative;
             z-index: 2;
@@ -397,16 +379,12 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .portrait-circle {
+        .portrait-image {
             width: 200px;
-            height: 200px;
-            background: linear-gradient(135deg, #8B4513, #D2691E);
-            border-radius: 50%;
+            height: 250px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Ren%C3%A9_Levasseur.jpg/440px-Ren%C3%A9_Levasseur.jpg') center/cover;
+            border-radius: 8px;
             margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
             border: 4px solid var(--or-ancien);
         }
 
@@ -453,34 +431,149 @@
             font-family: 'Cinzel', serif;
         }
 
-        /* Calendrier interactif */
+        /* Calendrier compact */
         .calendar-section {
             background: white;
         }
 
-        .calendar-container {
+        .calendar-compact {
             background: var(--papier-age);
             border: 3px solid var(--bleu-nuit);
             border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .calendar-header {
+        .calendar-header-compact {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--or-ancien);
+            margin-bottom: 1rem;
         }
 
-        .calendar-nav {
+        .calendar-grid-compact {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.3rem;
+        }
+
+        .calendar-day-compact {
+            aspect-ratio: 1;
+            border: 1px solid #ddd;
+            padding: 0.3rem;
+            font-size: 0.8rem;
+            text-align: center;
+            min-height: 40px;
+        }
+
+        /* Événements à la place des conférences */
+        .events-list {
             display: flex;
-            gap: 1rem;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .calendar-nav button {
+        .event-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            border-left: 5px solid var(--rouge-revolution);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .event-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--rouge-revolution);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Carrousel Librairie */
+        .bookstore {
+            background: white;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 2rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--or-ancien) var(--papier-age);
+        }
+
+        .carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .carousel::-webkit-scrollbar-track {
+            background: var(--papier-age);
+        }
+
+        .carousel::-webkit-scrollbar-thumb {
+            background-color: var(--or-ancien);
+            border-radius: 4px;
+        }
+
+        .carousel-item {
+            flex: 0 0 250px;
+            scroll-snap-align: start;
+            background: var(--papier-age);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .carousel-item:hover {
+            border-color: var(--or-ancien);
+            transform: translateY(-5px);
+        }
+
+        .carousel-cover {
+            width: 100%;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .carousel-title {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--bleu-nuit);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .carousel-price {
+            font-size: 1.5rem;
+            color: var(--rouge-revolution);
+            font-weight: bold;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-btn {
             background: var(--bleu-nuit);
             color: var(--or-ancien);
             border: none;
@@ -488,82 +581,9 @@
             border-radius: 4px;
             cursor: pointer;
             font-family: 'Cinzel', serif;
-            transition: all 0.3s;
         }
 
-        .calendar-nav button:hover {
-            background: var(--rouge-revolution);
-            color: white;
-        }
-
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 0.5rem;
-        }
-
-        .calendar-day-header {
-            text-align: center;
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-            color: var(--bleu-nuit);
-            padding: 0.5rem;
-            border-bottom: 2px solid var(--or-ancien);
-        }
-
-        .calendar-day {
-            aspect-ratio: 1;
-            border: 1px solid #ddd;
-            padding: 0.5rem;
-            background: white;
-            cursor: pointer;
-            transition: all 0.3s;
-            position: relative;
-            min-height: 80px;
-        }
-
-        .calendar-day:hover {
-            background: var(--papier-age);
-            transform: scale(1.05);
-            z-index: 10;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .calendar-day.other-month {
-            color: #ccc;
-            background: #f9f9f9;
-        }
-
-        .calendar-day.today {
-            border: 2px solid var(--rouge-revolution);
-            background: rgba(139, 38, 53, 0.1);
-        }
-
-        .day-number {
-            font-weight: bold;
-            color: var(--bleu-nuit);
-            margin-bottom: 0.3rem;
-        }
-
-        .event-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--rouge-revolution);
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 2px;
-        }
-
-        .event-label {
-            font-size: 0.7rem;
-            color: var(--rouge-revolution);
-            line-height: 1.2;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        /* Espace Membre Preview */
+        /* Espace Membre */
         .member-section {
             background: linear-gradient(to bottom, #e8e4d9, var(--papier-age));
         }
@@ -586,35 +606,14 @@
             overflow: hidden;
         }
 
-        .member-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--rouge-revolution), var(--or-ancien));
-        }
-
         .member-card:hover {
             border-color: var(--or-ancien);
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .member-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
-        }
-
-        .member-card h3 {
-            font-family: 'Cinzel', serif;
-            color: var(--bleu-nuit);
-            margin-bottom: 1rem;
-        }
-
-        .locked {
-            position: relative;
         }
 
         .locked::after {
@@ -626,170 +625,10 @@
             opacity: 0.5;
         }
 
-        /* Librairie */
-        .bookstore {
-            background: white;
-        }
-
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .book-card {
-            background: var(--papier-age);
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-            border: 2px solid transparent;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .book-card:hover {
-            border-color: var(--or-ancien);
-            transform: translateY(-5px);
-        }
-
-        .book-cover {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--papier-age);
-            font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            text-align: center;
-            padding: 1rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .book-cover::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                90deg,
-                transparent,
-                transparent 10px,
-                rgba(0,0,0,0.1) 10px,
-                rgba(0,0,0,0.1) 12px
-            );
-        }
-
-        .book-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            color: var(--bleu-nuit);
-            margin-bottom: 0.5rem;
-        }
-
-        .book-author {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        .book-price {
-            font-size: 1.3rem;
-            color: var(--rouge-revolution);
-            font-weight: bold;
-            margin: 1rem 0;
-        }
-
-        .btn-small {
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        /* Espace Association des Amis */
+        /* Espace Amis */
         .friends-section {
             background: linear-gradient(135deg, var(--vert-amic) 0%, #1a3a1a 100%);
             color: var(--papier-age);
-            position: relative;
-        }
-
-        .friends-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .friend-card {
-            background: rgba(255,255,255,0.1);
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            border-radius: 8px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s;
-        }
-
-        .friend-card:hover {
-            background: rgba(255,255,255,0.15);
-            border-color: var(--or-ancien);
-            transform: translateY(-5px);
-        }
-
-        .friend-card h3 {
-            font-family: 'Cinzel', serif;
-            color: var(--or-ancien);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .friend-stat {
-            font-size: 2rem;
-            color: var(--or-ancien);
-            font-weight: bold;
-            margin: 1rem 0;
-        }
-
-        /* Formulaires */
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: var(--bleu-nuit);
-            font-family: 'Cinzel', serif;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 4px;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--or-ancien);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
         }
 
         /* Footer */
@@ -815,21 +654,6 @@
             margin-bottom: 1rem;
         }
 
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section a {
-            color: var(--papier-age);
-            text-decoration: none;
-            transition: color 0.3s;
-            line-height: 2;
-        }
-
-        .footer-section a:hover {
-            color: var(--or-ancien);
-        }
-
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
@@ -841,42 +665,10 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .levasseur-grid { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-            nav ul { display: none; }
-            .mobile-menu { display: block; }
             .header-top { display: none; }
             .hero { margin-top: 80px; }
-            .calendar-grid { font-size: 0.8rem; }
-            .calendar-day { min-height: 60px; }
-        }
-
-        /* Utilitaires */
-        .text-center { text-align: center; }
-        .mt-2 { margin-top: 2rem; }
-        .mb-2 { margin-bottom: 2rem; }
-        
-        .badge {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            background: var(--or-ancien);
-            color: var(--bleu-nuit);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .alert {
-            padding: 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-
-        .alert-info {
-            background: rgba(0, 38, 84, 0.1);
-            border-left: 4px solid var(--tricolor-blue);
-            color: var(--bleu-nuit);
+            nav ul { display: none; }
+            .mobile-menu { display: block; }
         }
     </style>
 </head>
@@ -887,162 +679,102 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('loginModal')">&times;</button>
             <div class="modal-header">
-                <h2>⚡ Espace Membre</h2>
-                <p>Accédez à vos contenus exclusifs</p>
+                <h2>🎩 Espace Membre</h2>
             </div>
             <div class="modal-body">
-                <div class="form-row">
-                    <div style="flex: 1; padding-right: 2rem; border-right: 2px solid #ddd;">
-                        <h3 style="font-family: 'Cinzel', serif; margin-bottom: 1rem; color: var(--bleu-nuit);">Connexion</h3>
-                        <form id="loginForm">
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" placeholder="votre@email.com" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Mot de passe</label>
-                                <input type="password" placeholder="••••••••" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Se connecter</button>
-                            <p style="margin-top: 1rem; font-size: 0.9rem; text-align: center;">
-                                <a href="#" style="color: var(--rouge-revolution);">Mot de passe oublié ?</a>
-                            </p>
-                        </form>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="votre@email.com" required style="width: 100%; padding: 0.8rem; margin-bottom: 1rem;">
                     </div>
-                    <div style="flex: 1; padding-left: 2rem;">
-                        <h3 style="font-family: 'Cinzel', serif; margin-bottom: 1rem; color: var(--bleu-nuit);">Devenir Membre</h3>
-                        <p style="margin-bottom: 1rem;">Rejoignez notre association et bénéficiez de :</p>
-                        <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-                            <li>Accès à l'intégralité des conférences en replay</li>
-                            <li>Téléchargement des actes de conférences (PDF)</li>
-                            <li>Forum privé avec les historiens</li>
-                            <li>Réductions sur la librairie (20%)</li>
-                            <li>Newsletter mensuelle exclusive</li>
-                            <li>Invitation aux AG et événements privés</li>
-                        </ul>
-                        <button class="btn btn-secondary" style="width: 100%;" onclick="alert('Formulaire d\'adhésion à venir')">Adhérer maintenant</button>
+                    <div class="form-group">
+                        <label>Mot de passe</label>
+                        <input type="password" placeholder="••••••••" required style="width: 100%; padding: 0.8rem; margin-bottom: 1rem;">
                     </div>
-                </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Se connecter</button>
+                </form>
             </div>
         </div>
     </div>
 
-    <!-- Modal Calendrier Event -->
-    <div id="eventModal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('eventModal')">&times;</button>
-            <div class="modal-header" style="background: var(--rouge-revolution);">
-                <h2 id="eventTitle">Détails de l'événement</h2>
-            </div>
-            <div class="modal-body" id="eventDetails">
-                <!-- Contenu dynamique -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Header avec espace logos -->
+    <!-- Header -->
     <header>
-        <!-- Bandeau partenaires -->
         <div class="header-top">
             <div style="font-size: 0.8rem; opacity: 0.8;">Nos partenaires :</div>
             <div class="partner-logos">
                 <div class="logo-placeholder">Logo 1</div>
                 <div class="logo-placeholder">Logo 2</div>
                 <div class="logo-placeholder">Logo 3</div>
-                <div class="logo-placeholder">Ville de Paris</div>
+                <div class="logo-placeholder">Ville du Mans</div>
             </div>
         </div>
         
         <div class="header-content">
-            <!-- Logo principal - Symbole révolutionnaire (pas de fleur de lys) -->
             <a href="#" class="logo">
-                <span class="logo-icon">⚡</span> <!-- Symbole révolutionnaire -->
-                <span>Les Amis de 1789</span>
+                <span class="logo-icon">🎩</span>
+                <span style="font-size: 1.2rem;">SARF - Club René Levasseur</span>
             </a>
             <nav>
                 <ul>
                     <li><a href="#levasseur">René Levasseur</a></li>
-                    <li><a href="#calendrier">Calendrier</a></li>
-                    <li><a href="#conferences">Conférences</a></li>
+                    <li><a href="#evenements">Événements</a></li>
                     <li><a href="#librairie">Librairie</a></li>
-                    <li><a href="#amis">Espace Amis</a></li>
-                    <li><a href="#" class="btn-member" onclick="openModal('loginModal')">Espace Membre</a></li>
+                    <li><a href="#membre">Espace Membre</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+            <button class="mobile-menu">☰</button>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
             <h1>
                 <span>1789</span>
-                L'Histoire Vive de la Révolution Française
+                La Société des Amis de la Révolution Française
             </h1>
-            <p class="hero-subtitle">"Le peuple uni ne sera jamais vaincu"</p>
+            <p class="hero-subtitle">Club René Levasseur de la Sarthe</p>
             <div class="hero-cta">
-                <a href="#calendrier" class="btn btn-primary">Calendrier des Conférences</a>
-                <a href="#levasseur" class="btn btn-secondary">Espace René Levasseur</a>
+                <a href="#evenements" class="btn btn-primary">Prochains événements</a>
+                <a href="#librairie" class="btn btn-secondary">Nos publications</a>
             </div>
         </div>
     </section>
 
-    <!-- À propos -->
+    <!-- Mission -->
     <section id="about" style="background: white;">
-        <h2 class="section-title">Notre Mission</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-            <div>
-                <h3 style="font-family: 'Cinzel', serif; color: var(--rouge-revolution); margin-bottom: 1rem; font-size: 1.5rem;">Préserver la mémoire révolutionnaire</h3>
-                <p style="margin-bottom: 1rem; line-height: 1.8;">Fondée par des passionnés d'histoire, notre association s'est donnée pour mission de faire vivre l'héritage de 1789 à travers toute la France. Nous organisons des conférences accessibles à tous, publions des ouvrages de référence et entretenons le débat historique sur cette période fondatrice de notre nation.</p>
-                <p style="line-height: 1.8;">De Paris à Marseille, de Lille à Bordeaux, nos conférences attirent des centaines de curieux, d'étudiants et d'amateurs éclairés désireux de comprendre les enjeux de cette Révolution qui a changé le monde.</p>
-                
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; text-align: center;">
-                    <div style="padding: 2rem; background: var(--papier-age); border-radius: 8px; border: 2px solid var(--or-ancien);">
-                        <span style="font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--rouge-revolution); display: block;">150+</span>
-                        <span>Conférences/an</span>
-                    </div>
-                    <div style="padding: 2rem; background: var(--papier-age); border-radius: 8px; border: 2px solid var(--or-ancien);">
-                        <span style="font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--rouge-revolution); display: block;">45</span>
-                        <span>Villes déjà visitées</span>
-                    </div>
-                    <div style="padding: 2rem; background: var(--papier-age); border-radius: 8px; border: 2px solid var(--or-ancien);">
-                        <span style="font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--rouge-revolution); display: block;">12K</span>
-                        <span>Livres vendus</span>
-                    </div>
-                </div>
-            </div>
-            <div style="position: relative;">
-                <div style="background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%); height: 400px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #F5F1E8; font-family: 'Cinzel', serif; font-size: 1.5rem; text-align: center; padding: 2rem; border: 5px solid #D4AF37; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    📜<br>Archives<br>Nationales<br><small style="font-size: 0.8rem;">Estampe révolutionnaire<br>(1789-1799)</small>
-                </div>
-            </div>
+        <h2 class="section-title">Préserver la mémoire révolutionnaire</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: justify;">
+            <p style="margin-bottom: 1.5rem; line-height: 1.8;">
+                La Société des Amis de la Révolution Française (SARF) - Club René Levasseur de la Sarthe est une association culturelle et historique dont la mission est d'étudier et de faire rayonner l'héritage révolutionnaire dans le département de la Sarthe et au-delà.
+            </p>
+            <p style="margin-bottom: 1.5rem; line-height: 1.8;">
+                Son existence repose sur la volonté de transmettre une connaissance rigoureuse de cette période, notamment à travers des conférences publiques et des publications de recherche. Profondément attachée aux valeurs de la République et de la laïcité, elle agit en toute indépendance, refusant les subventions publiques pour garantir la liberté de ses travaux.
+            </p>
+            <p style="margin-bottom: 1.5rem; line-height: 1.8;">
+                Elle exerce également un rôle de veille citoyenne et éthique, en s'opposant par exemple aux réécritures partisanes de l'histoire locale ou en veillant au respect scientifique des vestiges archéologiques de l'époque.
+            </p>
+            <p style="font-weight: bold; color: var(--rouge-revolution); text-align: center; margin-top: 2rem;">
+                A déjà réalisé 37 conférences qui ont donné lieu à chacune un livret thématique.
+            </p>
         </div>
     </section>
 
-    <!-- Espace René Levasseur -->
+    <!-- René Levasseur -->
     <section id="levasseur" class="levasseur-section">
         <div class="levasseur-content">
             <h2 class="section-title" style="color: var(--papier-age);">Espace René Levasseur</h2>
-            <p class="text-center" style="margin-bottom: 3rem; opacity: 0.9;">
-                Conventionnel de la Sarthe (1747-1834) • Régicide • Abolitionniste de l'esclavage
-            </p>
             
             <div class="levasseur-grid">
                 <div class="levasseur-portrait">
-                    <div class="portrait-circle">👤</div>
+                    <div class="portrait-image"></div>
                     <h3 style="font-family: 'Cinzel', serif; color: var(--or-ancien); margin-bottom: 0.5rem;">René Levasseur</h3>
-                    <p style="font-style: italic; margin-bottom: 1rem;">"Levasseur de la Sarthe"</p>
+                    <p style="font-style: italic; margin-bottom: 1rem;">1747 - 1834</p>
                     <div style="text-align: left; font-size: 0.9rem; line-height: 1.8;">
                         <p><strong>Né :</strong> 27 mai 1747 au Mans</p>
                         <p><strong>Décédé :</strong> 18 septembre 1834</p>
                         <p><strong>Profession :</strong> Chirurgien-accoucheur</p>
                         <p><strong>Mandat :</strong> Conventionnel (1792-1795)</p>
-                    </div>
-                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(212,175,55,0.3);">
-                        <span class="badge">Montagnard</span>
-                        <span class="badge">Régicide</span>
-                        <span class="badge">Abolitionniste</span>
                     </div>
                 </div>
 
@@ -1051,524 +783,223 @@
                     <p class="levasseur-subtitle">"Un éternel prédicateur de révoltes"</p>
                     
                     <p style="margin-bottom: 1rem; line-height: 1.8;">
-                        René Levasseur fut l'une des figures marquantes de la Convention nationale. Chirurgien-accoucheur de formation, 
-                        il fut élu député de la Sarthe le 6 septembre 1792 et siégea à la Montagne aux côtés de Robespierre, 
-                        dont il fut l'ami et le fidèle partisan.
+                        René Levasseur fut l'une des figures marquantes de la Convention nationale. Élu député de la Sarthe le 6 septembre 1792, il siégea à la Montagne aux côtés de Robespierre, dont il fut l'ami et le fidèle partisan.
                     </p>
 
                     <p style="margin-bottom: 1rem; line-height: 1.8;">
-                        Le 4 février 1794, il participa activement aux débats menant à l'abolition de l'esclavage dans les colonies françaises. 
-                        Cet acte majeur de la Révolution, trop souvent oublié, fait de lui l'un des pères de l'abolitionnisme français.
+                        Le 4 février 1794, il participa activement aux débats menant à l'abolition de l'esclavage dans les colonies françaises. Cet acte majeur fait de lui l'un des pères de l'abolitionnisme français.
                     </p>
 
                     <div class="timeline">
                         <div class="timeline-item">
                             <div class="timeline-date">1792</div>
-                            <p>Élu à la Convention nationale par le département de la Sarthe. Vote pour la mort de Louis XVI.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">1793</div>
-                            <p>Propose l'établissement du Tribunal révolutionnaire. Combat les Girondins lors des journées de mai-juin.</p>
+                            <p>Élu à la Convention nationale. Vote pour la mort de Louis XVI.</p>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-date">4 février 1794</div>
-                            <p><strong>Décret d'abolition de l'esclavage :</strong> "Je demande que la Convention décrète dès ce moment que l'esclavage est aboli sur tout le territoire de la République."</p>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">1794-1795</div>
-                            <p>Opposé à la réaction thermidorienne. Arrêté après l'insurrection de germinal an III, bénéficie de l'amnistie.</p>
+                            <p><strong>Abolition de l'esclavage :</strong> "Je demande que la Convention décrète dès ce moment que l'esclavage est aboli."</p>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-date">1829-1831</div>
-                            <p>Publication de ses Mémoires en 4 volumes, œuvre majeure pour l'histoire de la Convention.</p>
+                            <p>Publication de ses Mémoires en 4 volumes.</p>
                         </div>
                     </div>
-
-                    <div class="alert alert-info" style="margin-top: 2rem; background: rgba(255,255,255,0.1); border-left-color: var(--or-ancien); color: var(--papier-age);">
-                        <strong>📚 Ressources exclusives :</strong> Accédez aux Mémoires de René Levasseur (édition originale numérisée), 
-                        sa correspondance, et les études historiques récentes sur son action abolitionniste dans l'<a href="#" onclick="openModal('loginModal')" style="color: var(--or-ancien);">espace membre</a>.
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Calendrier Interactif -->
-    <section id="calendrier" class="calendar-section">
-        <h2 class="section-title">Calendrier Interactif</h2>
-        <p class="text-center" style="margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-            Consultez nos conférences, colloques et événements commémoratifs. Cliquez sur une date pour voir les détails.
-        </p>
+    <!-- Événements (remplace le calendrier) -->
+    <section id="evenements" class="calendar-section">
+        <h2 class="section-title">Prochains événements</h2>
         
-        <div class="calendar-container">
-            <div class="calendar-header">
-                <h3 style="font-family: 'Cinzel', serif; color: var(--bleu-nuit);" id="currentMonth">Février 2026</h3>
-                <div class="calendar-nav">
-                    <button onclick="changeMonth(-1)">◀ Précédent</button>
-                    <button onclick="resetMonth()">Aujourd'hui</button>
-                    <button onclick="changeMonth(1)">Suivant ▶</button>
-                </div>
+        <div class="events-list">
+            <div class="event-card">
+                <h3>232e ANNIVERSAIRE de L'ABOLITION de L'ESCLAVAGE</h3>
+                <p><strong>Hommage 2026 à René Levasseur</strong></p>
+                <p>À l'invitation de Madame la Députée Élise Leboucher, avec la Libre Pensée et la SARF</p>
+                <p style="margin-top: 1rem; color: var(--rouge-revolution);">
+                    📅 Mercredi 4 Février 2026, à 15h<br>
+                    📍 Cimetière de l'Ouest, devant le monument de Levasseur
+                </p>
             </div>
-            
-            <div class="calendar-grid" id="calendarGrid">
-                <!-- Généré par JavaScript -->
+
+            <div class="event-card">
+                <h3>ASSEMBLÉE GÉNÉRALE</h3>
+                <p style="color: var(--rouge-revolution);">
+                    📅 Vendredi 27 Mars 2026 • 20h<br>
+                    📍 Maison de quartier Pierre Perret, rue Averroès, Le Mans
+                </p>
             </div>
-            
-            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 2px solid var(--or-ancien); display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span style="width: 12px; height: 12px; background: var(--rouge-revolution); border-radius: 50%; display: inline-block;"></span>
-                    <span>Conférence publique</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span style="width: 12px; height: 12px; background: var(--bleu-nuit); border-radius: 50%; display: inline-block;"></span>
-                    <span>Événement membre</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span style="width: 12px; height: 12px; background: var(--or-ancien); border-radius: 50%; display: inline-block;"></span>
-                    <span>Commémoration</span>
-                </div>
+
+            <div class="event-card">
+                <h3>IVe CONGRÈS NATIONAL des SOCIÉTÉS AMIES de la RÉVOLUTION FRANÇAISE</h3>
+                <p>Au Mans... en Septembre 2026</p>
+                <p style="margin-top: 1rem;">
+                    <strong>Dernière minute :</strong> Paul Chopelin, président de la Société des études robespierristes, sollicite la SARF pour organiser ce congrès. Le Conseil d'administration a répondu positivement.
+                </p>
+                <p style="color: var(--rouge-revolution); margin-top: 1rem;">
+                    📅 Septembre 2026<br>
+                    📍 Le Mans
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Conférences -->
-    <section id="conferences" style="background: linear-gradient(to bottom, #e8e4d9, var(--papier-age));">
-        <h2 class="section-title">Prochaines Conférences</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
-            <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: all 0.3s; border-left: 5px solid var(--rouge-revolution);">
-                <div style="background: var(--bleu-nuit); color: var(--or-ancien); padding: 1rem; text-align: center; font-family: 'Cinzel', serif;">
-                    <span style="font-size: 2rem; display: block; font-weight: 700;">15</span>
-                    <span>Février 2026</span>
-                </div>
-                <div style="padding: 1.5rem;">
-                    <h3 style="font-family: 'Cinzel', serif; color: var(--bleu-nuit); margin-bottom: 0.5rem;">La Prise de la Bastille : mythes et réalités</h3>
-                    <p>Revenons sur les événements du 14 juillet 1789 et déconstruisons les idées reçues sur cette journée emblématique.</p>
-                    <div style="display: flex; gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: #666;">
-                        <span>📍 Lyon</span>
-                        <span>🎤 Dr. Martin</span>
-                        <span>⏱ 2h30</span>
-                    </div>
-                    <a href="#" class="btn btn-primary btn-small" style="margin-top: 1rem; display: inline-block;">S'inscrire</a>
-                </div>
-            </div>
-
-            <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: all 0.3s; border-left: 5px solid var(--rouge-revolution);">
-                <div style="background: var(--bleu-nuit); color: var(--or-ancien); padding: 1rem; text-align: center; font-family: 'Cinzel', serif;">
-                    <span style="font-size: 2rem; display: block; font-weight: 700;">22</span>
-                    <span>Février 2026</span>
-                </div>
-                <div style="padding: 1.5rem;">
-                    <h3 style="font-family: 'Cinzel', serif; color: var(--bleu-nuit); margin-bottom: 0.5rem;">Robespierre : l'Incorruptible revisité</h3>
-                    <p>Une analyse nuancée de la figure controversée de Maximilien de Robespierre et de son rôle dans la Terreur.</p>
-                    <div style="display: flex; gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: #666;">
-                        <span>📍 Nantes</span>
-                        <span>🎤 Prof. Dubois</span>
-                        <span>⏱ 3h</span>
-                    </div>
-                    <a href="#" class="btn btn-primary btn-small" style="margin-top: 1rem; display: inline-block;">S'inscrire</a>
-                </div>
-            </div>
-
-            <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: all 0.3s; border-left: 5px solid var(--rouge-revolution);">
-                <div style="background: var(--bleu-nuit); color: var(--or-ancien); padding: 1rem; text-align: center; font-family: 'Cinzel', serif;">
-                    <span style="font-size: 2rem; display: block; font-weight: 700;">08</span>
-                    <span>Mars 2026</span>
-                </div>
-                <div style="padding: 1.5rem;">
-                    <h3 style="font-family: 'Cinzel', serif; color: var(--bleu-nuit); margin-bottom: 0.5rem;">Les Femmes de la Révolution</h3>
-                    <p>Olympe de Gouges, Charlotte Corday, les sans-culottes... Le rôle crucial des femmes dans les bouleversements de 1789.</p>
-                    <div style="display: flex; gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: #666;">
-                        <span>📍 Strasbourg</span>
-                        <span>🎤 Mme Lefranc</span>
-                        <span>⏱ 2h</span>
-                    </div>
-                    <a href="#" class="btn btn-primary btn-small" style="margin-top: 1rem; display: inline-block;">S'inscrire</a>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 3rem;">
-            <a href="#" class="btn btn-secondary">Voir toutes nos conférences</a>
-        </div>
-    </section>
-
-    <!-- Librairie -->
+    <!-- Librairie - Carrousel -->
     <section id="librairie" class="bookstore">
-        <h2 class="section-title">Notre Librairie</h2>
-        <p style="text-align: center; max-width: 600px; margin: -2rem auto 3rem; font-style: italic; color: #666;">
-            Les actes de nos conférences, enrichis et annotés, disponibles pour approfondir vos connaissances
-        </p>
-        <div class="books-grid">
-            <div class="book-card">
-                <div class="book-cover">
-                    📖<br>La Révolution<br>au quotidien<br><small>1789-1794</small>
+        <h2 class="section-title">Nos publications (2€)</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">Les livrets des conférences - 37 numéros disponibles</p>
+        
+        <div class="carousel-container">
+            <div class="carousel" id="bookCarousel">
+                <!-- Les images seront ajoutées via JavaScript ou vous pouvez les uploader sur GitHub -->
+                <div class="carousel-item">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #8B4513, #D2691E); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem;">
+                        La Révolution française à travers le cinéma
+                    </div>
+                    <div class="carousel-title">N° 05 - Cinéma</div>
+                    <div class="carousel-price">2,00 €</div>
+                    <button class="btn btn-primary btn-small" style="margin-top: 0.5rem; padding: 0.3rem 0.8rem; font-size: 0.8rem;">Ajouter</button>
                 </div>
-                <h4 class="book-title">La Révolution au Quotidien</h4>
-                <p class="book-author">Collectif - Actes 2024</p>
-                <p style="font-size: 0.9rem; color: #666;">Comment les Français ont vécu le bouleversement révolutionnaire au travers de leurs lettres et journaux intimes.</p>
-                <div class="book-price">24,90 €</div>
-                <button class="btn btn-primary btn-small">Ajouter au panier</button>
-            </div>
 
-            <div class="book-card">
-                <div class="book-cover" style="background: linear-gradient(135deg, #2C3E50 0%, #4A6741 100%);">
-                    📖<br>Les Enragés<br><small>Radicaux oubliés</small>
+                <div class="carousel-item">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #2C3E50, #4A6741); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem;">
+                        220e anniversaire de la République
+                    </div>
+                    <div class="carousel-title">N° 07 - République</div>
+                    <div class="carousel-price">2,00 €</div>
+                    <button class="btn btn-primary btn-small" style="margin-top: 0.5rem; padding: 0.3rem 0.8rem; font-size: 0.8rem;">Ajouter</button>
                 </div>
-                <h4 class="book-title">Les Enragés : Radicaux Oubliés</h4>
-                <p class="book-author">Dr. Philippe Martin</p>
-                <p style="font-size: 0.9rem; color: #666;">Jacques Roux, Jean Varlet... Ces révolutionnaires trop avancés même pour les Montagnards.</p>
-                <div class="book-price">22,50 €</div>
-                <button class="btn btn-primary btn-small">Ajouter au panier</button>
-            </div>
 
-            <div class="book-card">
-                <div class="book-cover" style="background: linear-gradient(135deg, #8E44AD 0%, #C0392B 100%);">
-                    📖<br>Marie-Antoinette<br><small>Vérités et légendes</small>
+                <div class="carousel-item">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #8E44AD, #C0392B); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem;">
+                        Babeuf - De l'utopie à la conspiration des Égaux
+                    </div>
+                    <div class="carousel-title">N° 08 - Babeuf</div>
+                    <div class="carousel-price">2,00 €</div>
+                    <button class="btn btn-primary btn-small" style="margin-top: 0.5rem; padding: 0.3rem 0.8rem; font-size: 0.8rem;">Ajouter</button>
                 </div>
-                <h4 class="book-title">Marie-Antoinette : Vérités et Légendes</h4>
-                <p class="book-author">Prof. Sophie Dubois</p>
-                <p style="font-size: 0.9rem; color: #666;">Déconstruire le mythe de l'Autrichienne et retrouver la femme derrière la reine.</p>
-                <div class="book-price">28,00 €</div>
-                <button class="btn btn-primary btn-small">Ajouter au panier</button>
-            </div>
 
-            <div class="book-card">
-                <div class="book-cover" style="background: linear-gradient(135deg, #D35400 0%, #F39C12 100%);">
-                    📖<br>La Révolution<br>en Province<br><small>1789-1799</small>
+                <div class="carousel-item">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #D35400, #F39C12); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem;">
+                        Les femmes en Révolution
+                    </div>
+                    <div class="carousel-title">N° 09 - Femmes</div>
+                    <div class="carousel-price">2,00 €</div>
+                    <button class="btn btn-primary btn-small" style="margin-top: 0.5rem; padding: 0.3rem 0.8rem; font-size: 0.8rem;">Ajouter</button>
                 </div>
-                <h4 class="book-title">La Révolution en Province</h4>
-                <p class="book-author">Collectif Régional</p>
-                <p style="font-size: 0.9rem; color: #666;">Comment les idées de 1789 se sont diffusées dans les campagnes et villes de province.</p>
-                <div class="book-price">26,90 €</div>
-                <button class="btn btn-primary btn-small">Ajouter au panier</button>
+
+                <div class="carousel-item">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #1B263B, #8B2635); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem;">
+                        La Constitution civile du clergé
+                    </div>
+                    <div class="carousel-title">N° 15 - Clergé</div>
+                    <div class="carousel-price">2,00 €</div>
+                    <button class="btn btn-primary btn-small" style="margin-top: 0.5rem; padding: 0.3rem 0.8rem; font-size: 0.8rem;">Ajouter</button>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #2E5A2E, #D4AF37); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem;">
+                        L'abbé Sieyès en Révolution
+                    </div>
+                    <div class="carousel-title">N° 18 - Sieyès</div>
+                    <div class="carousel-price">2,00 €</div>
+                    <button class="btn btn-primary btn-small" style="margin-top: 0.5rem; padding: 0.3rem 0.8rem; font-size: 0.8rem;">Ajouter</button>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #C41E3A, #002654); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem;">
+                        La déchristianisation de l'an II
+                    </div>
+                    <div class="carousel-title">N° 26 - Déchristianisation</div>
+                    <div class="carousel-price">2,00 €</div>
+                    <button class="btn btn-primary btn-small" style="margin-top: 0.5rem; padding: 0.3rem 0.8rem; font-size: 0.8rem;">Ajouter</button>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #8B0000, #FFD700); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem;">
+                        L'abolition de l'esclavage
+                    </div>
+                    <div class="carousel-title">Château-du-Loir - Esclavage</div>
+                    <div class="carousel-price">2,00 €</div>
+                    <button class="btn btn-primary btn-small" style="margin-top: 0.5rem; padding: 0.3rem 0.8rem; font-size: 0.8rem;">Ajouter</button>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #4A0E0E, #F4A460); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem;">
+                        Le Cahier de doléances de Saint-Michel de Chavaigne
+                    </div>
+                    <div class="carousel-title">N° 06 - Doléances</div>
+                    <div class="carousel-price">2,00 €</div>
+                    <button class="btn btn-primary btn-small" style="margin-top: 0.5rem; padding: 0.3rem 0.8rem; font-size: 0.8rem;">Ajouter</button>
+                </div>
             </div>
-        </div>
-        <div style="text-align: center; margin-top: 3rem;">
-            <a href="#" class="btn btn-secondary">Consulter le catalogue complet</a>
+            
+            <div class="carousel-nav">
+                <button class="carousel-btn" onclick="scrollCarousel(-1)">◀ Précédent</button>
+                <button class="carousel-btn" onclick="scrollCarousel(1)">Suivant ▶</button>
+            </div>
         </div>
     </section>
 
-    <!-- Espace Membre Preview -->
+    <!-- Espace Membre -->
     <section id="membre" class="member-section">
         <h2 class="section-title">Espace Membre</h2>
-        <p class="text-center" style="max-width: 700px; margin: -2rem auto 3rem;">
-            Rejoignez notre association pour accéder à des contenus exclusifs et participer activement à la vie de notre communauté d'historiens.
-        </p>
-        
         <div class="member-features">
             <div class="member-card locked" onclick="openModal('loginModal')">
                 <div class="member-icon">📹</div>
                 <h3>Conférences Replay</h3>
-                <p>Accédez à l'intégralité de nos conférences filmées depuis 2018.</p>
             </div>
-            
             <div class="member-card locked" onclick="openModal('loginModal')">
                 <div class="member-icon">📚</div>
                 <h3>Bibliothèque Numérique</h3>
-                <p>Téléchargez les actes de conférences, thèses et documents rares.</p>
             </div>
-            
             <div class="member-card locked" onclick="openModal('loginModal')">
                 <div class="member-icon">💬</div>
-                <h3>Forum des Historiens</h3>
-                <p>Échangez avec nos conférenciers et membres sur les débats historiques.</p>
-            </div>
-            
-            <div class="member-card locked" onclick="openModal('loginModal')">
-                <div class="member-icon">🏛</div>
-                <h3>Visites Exclusives</h3>
-                <p>Participez à des visites guidées privées (Archives nationales, etc.).</p>
+                <h3>Forum</h3>
             </div>
         </div>
-
-        <div class="text-center mt-2">
-            <button class="btn btn-primary" onclick="openModal('loginModal')" style="font-size: 1.1rem; padding: 1rem 3rem;">
-                Rejoindre l'association
-            </button>
-            <p style="margin-top: 1rem; font-style: italic; color: #666;">
-                Déjà membre ? <a href="#" onclick="openModal('loginModal')" style="color: var(--rouge-revolution);">Connectez-vous</a>
-            </p>
-        </div>
-    </section>
-
-    <!-- Espace Association des Amis -->
-    <section id="amis" class="friends-section">
-        <h2 class="section-title" style="color: var(--papier-age);">Espace Association des Amis</h2>
-        <p class="text-center" style="margin-bottom: 3rem; opacity: 0.9; max-width: 800px; margin-left: auto; margin-right: auto;">
-            Notre réseau de sympathisants et de correspondants locaux à travers toute la France. 
-            Rejoignez-nous pour organiser des événements dans votre région.
-        </p>
-
-        <div class="friends-grid">
-            <div class="friend-card">
-                <h3>🗞 Lettres d'information</h3>
-                <p>Recevez notre lettre trimestrielle avec les dernières découvertes historiques, les comptes-rendus d'AG et les appels à contribution.</p>
-                <div class="friend-stat">2,400+</div>
-                <p>Amis inscrits à la newsletter</p>
-            </div>
-
-            <div class="friend-card">
-                <h3>🤝 Correspondants Locaux</h3>
-                <p>Devenez correspondant local pour votre département. Organisez des rencontres, signalez les événements locaux, participez à nos enquêtes historiques.</p>
-                <div class="friend-stat">45</div>
-                <p>Départements couverts</p>
-            </div>
-
-            <div class="friend-card">
-                <h3>📖 Prêt de Livres</h3>
-                <p>Accédez à notre bibliothèque circulante. Les amis peuvent emprunter nos ouvrages de référence entre conférences.</p>
-                <div class="friend-stat">800+</div>
-                <p>Ouvrages disponibles</p>
-            </div>
-
-            <div class="friend-card">
-                <h3>🎓 Cours d'été</h3>
-                <p>Participez à nos universités d'été annuelles. Sessions de formation intensive sur des thèmes spécifiques de la Révolution.</p>
-                <div style="margin-top: 1rem;">
-                    <span class="badge" style="background: var(--rouge-revolution); color: white;">Prochain : Juillet 2026</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-2">
-            <button class="btn btn-secondary" style="font-size: 1.1rem;">
-                Devenir Ami de 1789 (Gratuit)
-            </button>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section style="background: linear-gradient(135deg, var(--rouge-revolution) 0%, #6b1e2a 100%); color: white; text-align: center; padding: 4rem 2rem;">
-        <h2 style="font-family: 'Cinzel', serif; margin-bottom: 1rem;">Restez Informé</h2>
-        <p>Recevez notre lettre mensuelle et les alertes sur les nouvelles conférences près de chez vous</p>
-        <form style="max-width: 600px; margin: 2rem auto 0; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-            <input type="email" placeholder="Votre adresse email" style="flex: 1; min-width: 300px; padding: 1rem; border: none; border-radius: 4px; font-family: inherit; font-size: 1rem;" required>
-            <button type="submit" class="btn btn-secondary" style="background: var(--or-ancien); color: var(--bleu-nuit); border-color: var(--or-ancien);">
-                S'inscrire
-            </button>
-        </form>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Les Amis de 1789</h4>
-                <p style="line-height: 1.8; opacity: 0.9;">
-                    Association loi 1901 dédiée à l'étude et à la diffusion de l'histoire de la Révolution française de 1789.
-                </p>
-                <p style="margin-top: 1rem;">
-                    <strong>Siège :</strong><br>
-                    12 Rue de la Révolution<br>
-                    75001 Paris
-                </p>
+                <h4>SARF - Club René Levasseur</h4>
+                <p>12 Rue de la Révolution<br>72000 Le Mans</p>
             </div>
-            
-            <div class="footer-section">
-                <h4>Liens Rapides</h4>
-                <ul>
-                    <li><a href="#about">Qui sommes-nous ?</a></li>
-                    <li><a href="#conferences">Programme des conférences</a></li>
-                    <li><a href="#librairie">Boutique en ligne</a></li>
-                    <li><a href="#levasseur">Espace René Levasseur</a></li>
-                    <li><a href="#" onclick="openModal('loginModal')">Devenir membre</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Ressources</h4>
-                <ul>
-                    <li><a href="#">Archives numériques</a></li>
-                    <li><a href="#">Bibliographie recommandée</a></li>
-                    <li><a href="#">Liens utiles</a></li>
-                    <li><a href="#">Presse</a></li>
-                </ul>
-            </div>
-            
             <div class="footer-section">
                 <h4>Contact</h4>
-                <ul>
-                    <li>📧 contact@lesamisde1789.fr</li>
-                    <li>📞 01 23 45 67 89</li>
-                    <li style="margin-top: 1rem;">
-                        <a href="#" style="margin-right: 1rem;">Facebook</a>
-                        <a href="#" style="margin-right: 1rem;">Twitter</a>
-                        <a href="#">Instagram</a>
-                    </li>
-                </ul>
+                <p>📧 contact@sarf72.fr<br>📞 06 22 20 12 83</p>
             </div>
         </div>
-        
         <div class="footer-bottom">
-            <p>&copy; 2026 Les Amis de 1789 - Association d'Histoire. Tous droits réservés. | <a href="#" style="color: inherit;">Mentions légales</a> | <a href="#" style="color: inherit;">CGV</a></p>
+            <p>&copy; 2026 SARF - Tous droits réservés</p>
         </div>
     </footer>
 
     <script>
-        // Gestion des Modals
         function openModal(modalId) {
             document.getElementById(modalId).classList.add('active');
-            document.body.style.overflow = 'hidden';
         }
 
         function closeModal(modalId) {
             document.getElementById(modalId).classList.remove('active');
-            document.body.style.overflow = 'auto';
         }
 
-        // Fermer modal en cliquant à l'extérieur
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
+        function scrollCarousel(direction) {
+            const carousel = document.getElementById('bookCarousel');
+            const scrollAmount = 300;
+            carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
-
-        // Calendrier Interactif
-        let currentDate = new Date(2026, 1, 1); // Février 2026
-        
-        const events = {
-            '2026-02-15': { title: 'La Prise de la Bastille', type: 'public', location: 'Lyon', time: '14h30' },
-            '2026-02-22': { title: 'Robespierre revisité', type: 'public', location: 'Nantes', time: '19h00' },
-            '2026-03-08': { title: 'Les Femmes de la Révolution', type: 'public', location: 'Strasbourg', time: '15h00' },
-            '2026-02-04': { title: 'Commémoration Abolition Esclavage', type: 'commemoration', location: 'Paris', time: '10h00' },
-            '2026-02-20': { title: 'Réunion Membres - AG', type: 'member', location: 'Paris', time: '18h00' }
-        };
-
-        function generateCalendar() {
-            const year = currentDate.getFullYear();
-            const month = currentDate.getMonth();
-            const firstDay = new Date(year, month, 1).getDay();
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
-            const monthNames = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
-            
-            document.getElementById('currentMonth').textContent = `${monthNames[month]} ${year}`;
-            
-            const grid = document.getElementById('calendarGrid');
-            grid.innerHTML = '';
-            
-            // Jours de la semaine
-            const days = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
-            days.forEach(day => {
-                const div = document.createElement('div');
-                div.className = 'calendar-day-header';
-                div.textContent = day;
-                grid.appendChild(div);
-            });
-            
-            // Cases vides avant le 1er
-            for (let i = 0; i < (firstDay === 0 ? 6 : firstDay - 1); i++) {
-                const div = document.createElement('div');
-                div.className = 'calendar-day other-month';
-                grid.appendChild(div);
-            }
-            
-            // Jours du mois
-            const today = new Date();
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-                const event = events[dateStr];
-                
-                const div = document.createElement('div');
-                div.className = 'calendar-day';
-                
-                if (year === today.getFullYear() && month === today.getMonth() && day === today.getDate()) {
-                    div.classList.add('today');
-                }
-                
-                div.innerHTML = `<div class="day-number">${day}</div>`;
-                
-                if (event) {
-                    const dotColor = event.type === 'public' ? 'var(--rouge-revolution)' : 
-                                   event.type === 'member' ? 'var(--bleu-nuit)' : 'var(--or-ancien)';
-                    div.innerHTML += `
-                        <div style="margin-top: 0.3rem;">
-                            <span class="event-dot" style="background: ${dotColor};"></span>
-                            <div class="event-label">${event.title}</div>
-                        </div>
-                    `;
-                    div.onclick = () => showEventDetails(dateStr, event);
-                    div.style.cursor = 'pointer';
-                }
-                
-                grid.appendChild(div);
-            }
-        }
-
-        function changeMonth(delta) {
-            currentDate.setMonth(currentDate.getMonth() + delta);
-            generateCalendar();
-        }
-
-        function resetMonth() {
-            currentDate = new Date();
-            generateCalendar();
-        }
-
-        function showEventDetails(date, event) {
-            const dateObj = new Date(date);
-            const dateStr = dateObj.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
-            
-            document.getElementById('eventTitle').textContent = event.title;
-            document.getElementById('eventDetails').innerHTML = `
-                <div style="margin-bottom: 1.5rem;">
-                    <p style="font-size: 1.2rem; color: var(--rouge-revolution); margin-bottom: 1rem;">📅 ${dateStr}</p>
-                    <p><strong>⏰ Heure :</strong> ${event.time}</p>
-                    <p><strong>📍 Lieu :</strong> ${event.location}</p>
-                    <p><strong>🎫 Type :</strong> ${event.type === 'public' ? 'Conférence publique' : event.type === 'member' ? 'Événement membres uniquement' : 'Commémoration officielle'}</p>
-                </div>
-                <div style="background: var(--papier-age); padding: 1rem; border-radius: 4px; margin-bottom: 1.5rem;">
-                    <p>Description de l'événement et informations pratiques...</p>
-                </div>
-                ${event.type === 'member' ? 
-                    '<div class="alert alert-info">Cet événement est réservé aux membres. <a href="#" onclick="openModal(\'loginModal\')" style="color: var(--rouge-revolution);">Connectez-vous</a> pour vous inscrire.</div>' :
-                    `<button class="btn btn-primary" onclick="alert('Inscription ouverte !')">S'inscrire à cette conférence</button>`
-                }
-            `;
-            openModal('eventModal');
-        }
-
-        // Formulaires
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Connexion simulée ! Dans la version finale, ceci connecterait à votre espace membre.');
-            closeModal('loginModal');
-        });
-
-        // Menu mobile
-        function toggleMobileMenu() {
-            const nav = document.querySelector('nav ul');
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-            nav.style.position = 'absolute';
-            nav.style.top = '100%';
-            nav.style.left = '0';
-            nav.style.right = '0';
-            nav.style.background = 'var(--bleu-nuit)';
-            nav.style.flexDirection = 'column';
-            nav.style.padding = '1rem';
-        }
-
-        // Initialisation
-        generateCalendar();
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }
-            });
-        });
-
-        // Boutons d'achat
-        document.querySelectorAll('.book-card button').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const book = this.closest('.book-card').querySelector('.book-title').textContent;
-                alert(`"${book}" a été ajouté à votre panier !`);
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>

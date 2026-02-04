@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Société des Amis de la Révolution Française (SARF) - Club René Levasseur de la Sarthe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             --rouge-revolution: #8B2635;
+            --rouge-fonce: #5C1A23;
             --or-ancien: #D4AF37;
-            --bleu-nuit: #1B263B;
             --papier-age: #F5F1E8;
             --encre-noire: #2C241B;
             --tricolor-red: #C41E3A;
-            --tricolor-white: #FFFFFF;
             --tricolor-blue: #002654;
             --vert-amic: #2E5A2E;
         }
@@ -38,7 +37,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Modal/Overlay */
+        /* Modal Livret Détail */
         .modal {
             display: none;
             position: fixed;
@@ -56,12 +55,12 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding-top: 5rem;
+            padding-top: 3rem;
         }
 
         .modal-content {
             background: var(--papier-age);
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             border-radius: 8px;
             border: 3px solid var(--or-ancien);
@@ -69,6 +68,9 @@
             animation: fadeInUp 0.5s;
             max-height: 90vh;
             overflow-y: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
         }
 
         .modal-close {
@@ -83,6 +85,7 @@
             border-radius: 50%;
             cursor: pointer;
             font-size: 1.5rem;
+            z-index: 10;
             transition: transform 0.3s;
         }
 
@@ -90,27 +93,46 @@
             transform: rotate(90deg);
         }
 
-        .modal-header {
-            background: linear-gradient(135deg, var(--bleu-nuit), #0f1419);
-            color: var(--or-ancien);
-            padding: 2rem;
-            border-bottom: 3px solid var(--or-ancien);
+        .modal-image {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px 0 0 8px;
         }
 
-        .modal-header h2 {
+        .modal-text {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .modal-text h2 {
             font-family: 'Cinzel', serif;
+            color: var(--rouge-revolution);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .modal-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .modal-price {
             font-size: 2rem;
+            color: var(--rouge-revolution);
+            font-weight: bold;
+            margin: 1rem 0;
         }
 
-        .modal-body {
-            padding: 2rem;
-        }
-
-        /* Header avec espace logos */
+        /* Header ROUGE RÉVOLUTIONNAIRE */
         header {
-            background: linear-gradient(135deg, var(--bleu-nuit) 0%, #0f1419 100%);
+            background: linear-gradient(135deg, var(--rouge-revolution) 0%, var(--rouge-fonce) 100%);
             color: var(--papier-age);
-            padding: 0;
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -119,46 +141,16 @@
             border-bottom: 3px solid var(--or-ancien);
         }
 
-        .header-top {
-            background: rgba(0,0,0,0.3);
-            padding: 0.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        /* Espace pour logos partenaires */
-        .partner-logos {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .logo-placeholder {
-            width: 80px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border: 1px dashed var(--or-ancien);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            color: var(--or-ancien);
-            text-align: center;
-        }
-
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* Logo principal - SARF */
+        /* Logo SARF */
         .logo {
             font-family: 'Cinzel', serif;
             font-size: 1.3rem;
@@ -174,8 +166,9 @@
         .logo:hover { transform: scale(1.05); }
 
         .logo-img {
-            height: 40px;
+            height: 50px;
             width: auto;
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.3));
         }
 
         nav ul {
@@ -210,16 +203,17 @@
         nav a:hover { color: var(--or-ancien); }
 
         .btn-member {
-            background: var(--rouge-revolution);
+            background: var(--or-ancien);
+            color: var(--rouge-fonce);
             padding: 0.5rem 1rem;
             border-radius: 4px;
-            border: 2px solid var(--rouge-revolution);
+            border: 2px solid var(--or-ancien);
             transition: all 0.3s;
         }
 
         .btn-member:hover {
             background: transparent;
-            color: var(--rouge-revolution);
+            color: var(--or-ancien);
         }
 
         .mobile-menu {
@@ -233,9 +227,9 @@
 
         /* Hero avec Prise de la Bastille */
         .hero {
-            margin-top: 140px;
+            margin-top: 80px;
             height: 90vh;
-            background: linear-gradient(rgba(27, 38, 59, 0.6), rgba(27, 38, 59, 0.7)), 
+            background: linear-gradient(rgba(92, 26, 35, 0.6), rgba(92, 26, 35, 0.7)), 
                         url('https://i.imgur.com/IadHy6Z.jpeg') center/cover;
             display: flex;
             align-items: center;
@@ -291,14 +285,14 @@
         }
 
         .btn-primary {
-            background: var(--rouge-revolution);
-            color: white;
-            border-color: var(--rouge-revolution);
+            background: var(--or-ancien);
+            color: var(--rouge-fonce);
+            border-color: var(--or-ancien);
         }
 
         .btn-primary:hover {
             background: transparent;
-            color: var(--rouge-revolution);
+            color: var(--or-ancien);
             transform: translateY(-2px);
         }
 
@@ -310,7 +304,7 @@
 
         .btn-secondary:hover {
             background: var(--or-ancien);
-            color: var(--bleu-nuit);
+            color: var(--rouge-fonce);
             transform: translateY(-2px);
         }
 
@@ -321,12 +315,22 @@
             margin: 0 auto;
         }
 
+        /* Titre manuscrit style Mayonice */
+        .section-title-manuscrit {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--rouge-revolution);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
         .section-title {
             font-family: 'Cinzel', serif;
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 3rem;
-            color: var(--bleu-nuit);
+            color: var(--rouge-revolution);
             position: relative;
             display: inline-block;
             left: 50%;
@@ -494,11 +498,13 @@
             text-align: center;
             border: 2px solid transparent;
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .carousel-item:hover {
             border-color: var(--or-ancien);
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .carousel-cover {
@@ -514,7 +520,7 @@
         .carousel-title {
             font-family: 'Cinzel', serif;
             font-size: 0.9rem;
-            color: var(--bleu-nuit);
+            color: var(--rouge-revolution);
             margin-bottom: 0.5rem;
             line-height: 1.3;
         }
@@ -533,7 +539,7 @@
         }
 
         .carousel-btn {
-            background: var(--bleu-nuit);
+            background: var(--rouge-revolution);
             color: var(--or-ancien);
             border: none;
             padding: 0.5rem 1rem;
@@ -581,7 +587,7 @@
 
         /* Footer */
         footer {
-            background: var(--bleu-nuit);
+            background: linear-gradient(135deg, var(--rouge-revolution) 0%, var(--rouge-fonce) 100%);
             color: var(--papier-age);
             padding: 3rem 2rem 1rem;
             border-top: 3px solid var(--or-ancien);
@@ -613,50 +619,37 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .levasseur-grid { grid-template-columns: 1fr; }
-            .header-top { display: none; }
-            .hero { margin-top: 80px; }
+            .modal-content { grid-template-columns: 1fr; }
+            .modal-image { min-height: 300px; border-radius: 8px 8px 0 0; }
+            .hero { margin-top: 70px; }
             nav ul { display: none; }
             .mobile-menu { display: block; }
+            .section-title-manuscrit { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Modal Connexion -->
-    <div id="loginModal" class="modal">
+    <!-- Modal Livret Détail -->
+    <div id="livretModal" class="modal">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('loginModal')">&times;</button>
-            <div class="modal-header">
-                <h2>Espace Membre</h2>
-            </div>
-            <div class="modal-body">
-                <form id="loginForm">
-                    <div style="margin-bottom: 1rem;">
-                        <label>Email</label>
-                        <input type="email" placeholder="votre@email.com" required style="width: 100%; padding: 0.8rem; margin-top: 0.5rem;">
-                    </div>
-                    <div style="margin-bottom: 1rem;">
-                        <label>Mot de passe</label>
-                        <input type="password" placeholder="••••••••" required style="width: 100%; padding: 0.8rem; margin-top: 0.5rem;">
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Se connecter</button>
-                </form>
+            <button class="modal-close" onclick="closeModal('livretModal')">&times;</button>
+            <div class="modal-image" id="modalImage" style="background: url('') center/cover;"></div>
+            <div class="modal-text">
+                <h2 id="modalTitle">Titre du livret</h2>
+                <p id="modalDescription">Description du livret...</p>
+                <div class="modal-price" id="modalPrice">2,00 €</div>
+                <p><strong>Format :</strong> Broché, 24 pages</p>
+                <p><strong>ISBN :</strong> 978-2-XXXX-XXXX-X</p>
+                <a href="https://www.helloasso.com" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">
+                    Acheter sur HelloAsso
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- Header -->
+    <!-- Header ROUGE -->
     <header>
-        <div class="header-top">
-            <div style="font-size: 0.8rem; opacity: 0.8;">Nos partenaires :</div>
-            <div class="partner-logos">
-                <div class="logo-placeholder">Logo 1</div>
-                <div class="logo-placeholder">Logo 2</div>
-                <div class="logo-placeholder">Logo 3</div>
-                <div class="logo-placeholder">Ville du Mans</div>
-            </div>
-        </div>
-        
         <div class="header-content">
             <a href="#" class="logo">
                 <img src="https://i.imgur.com/zR4Lt3L.png" alt="SARF" class="logo-img">
@@ -689,9 +682,9 @@
         </div>
     </section>
 
-    <!-- Mission -->
+    <!-- Mission avec typo manuscrite -->
     <section id="about" style="background: white;">
-        <h2 class="section-title">Préserver la mémoire révolutionnaire</h2>
+        <h2 class="section-title-manuscrit">Préserver la mémoire révolutionnaire</h2>
         <div style="max-width: 800px; margin: 0 auto; text-align: justify;">
             <p style="margin-bottom: 1.5rem; line-height: 1.8;">
                 La Société des Amis de la Révolution Française (SARF) - Club René Levasseur de la Sarthe est une association culturelle et historique dont la mission est d'étudier et de faire rayonner l'héritage révolutionnaire dans le département de la Sarthe et au-delà.
@@ -702,7 +695,7 @@
             <p style="margin-bottom: 1.5rem; line-height: 1.8;">
                 Elle exerce également un rôle de veille citoyenne et éthique, en s'opposant par exemple aux réécritures partisanes de l'histoire locale ou en veillant au respect scientifique des vestiges archéologiques de l'époque.
             </p>
-            <p style="font-weight: bold; color: var(--rouge-revolution); text-align: center; margin-top: 2rem;">
+            <p style="font-weight: bold; color: var(--rouge-revolution); text-align: center; margin-top: 2rem; font-family: 'Cinzel', serif;">
                 A déjà réalisé 37 conférences qui ont donné lieu à chacune un livret thématique.
             </p>
         </div>
@@ -794,48 +787,85 @@
         </div>
     </section>
 
-    <!-- Librairie - Carrousel -->
+    <!-- Librairie - Carrousel avec vraies images -->
     <section id="librairie" class="bookstore">
         <h2 class="section-title">Nos publications (2€)</h2>
         <p style="text-align: center; margin-bottom: 2rem;">Les livrets des conférences - 37 numéros disponibles</p>
         
         <div class="carousel-container">
             <div class="carousel" id="bookCarousel">
-                <!-- Les affiches seront ajoutées ici avec les liens Imgur -->
-                <div class="carousel-item">
-                    <div class="carousel-cover" style="background: linear-gradient(135deg, #8B4513, #D2691E); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem;">
-                        La Révolution française à travers le cinéma
+                <!-- Les images des livrets seront insérées ici -->
+                <!-- Exemple avec placeholder - remplacez par vos liens Imgur -->
+                <div class="carousel-item" onclick="openLivretModal('N° 05 - Cinéma', 'La Révolution française à travers le cinéma français et anglo-saxon. Extrait de films : La Marseillaise, Napoléon (Gance), Les Deux Orphelines, Le règne de la Terreur, Marie-Antoinette...', 'https://i.imgur.com/w7oSesb.png')">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #8B4513, #D2691E); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
+                        N° 05<br>La Révolution française à travers le cinéma
                     </div>
                     <div class="carousel-title">N° 05 - Cinéma</div>
                     <div class="carousel-price">2,00 €</div>
-                    <button class="btn btn-primary" style="margin-top: 0.5rem; padding: 0.3rem 0.8rem; font-size: 0.8rem;">Ajouter</button>
                 </div>
 
-                <div class="carousel-item">
-                    <div class="carousel-cover" style="background: linear-gradient(135deg, #2C3E50, #4A6741); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem;">
-                        220e anniversaire de la République
+                <div class="carousel-item" onclick="openLivretModal('N° 06 - Doléances', 'Le Cahier de doléances de Saint-Michel de Chavaigne. Que sont devenues nos doléances ?', 'https://i.imgur.com/w7oSesb.png')">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #4A0E0E, #F4A460); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
+                        N° 06<br>Le Cahier de doléances
+                    </div>
+                    <div class="carousel-title">N° 06 - Doléances</div>
+                    <div class="carousel-price">2,00 €</div>
+                </div>
+
+                <div class="carousel-item" onclick="openLivretModal('N° 07 - République', '220e anniversaire de la République. Rassemblement et plantation de l\'Arbre de la Liberté.', 'https://i.imgur.com/w7oSesb.png')">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #2C3E50, #4A6741); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
+                        N° 07<br>220e anniversaire de la République
                     </div>
                     <div class="carousel-title">N° 07 - République</div>
                     <div class="carousel-price">2,00 €</div>
-                    <button class="btn btn-primary" style="margin-top: 0.5rem; padding: 0.3rem 0.8rem; font-size: 0.8rem;">Ajouter</button>
                 </div>
 
-                <div class="carousel-item">
-                    <div class="carousel-cover" style="background: linear-gradient(135deg, #8E44AD, #C0392B); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem;">
-                        Babeuf - De l'utopie à la conspiration des Égaux
+                <div class="carousel-item" onclick="openLivretModal('N° 08 - Babeuf', 'Babeuf - De l\'utopie à la conspiration des Égaux. Expériences d\'une vie et engagement collectif.', 'https://i.imgur.com/w7oSesb.png')">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #8E44AD, #C0392B); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
+                        N° 08<br>Babeuf
                     </div>
                     <div class="carousel-title">N° 08 - Babeuf</div>
                     <div class="carousel-price">2,00 €</div>
-                    <button class="btn btn-primary" style="margin-top: 0.5rem; padding: 0.3rem 0.8rem; font-size: 0.8rem;">Ajouter</button>
                 </div>
 
-                <div class="carousel-item">
-                    <div class="carousel-cover" style="background: linear-gradient(135deg, #D35400, #F39C12); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem;">
-                        Les femmes en Révolution
+                <div class="carousel-item" onclick="openLivretModal('N° 09 - Femmes', 'Les femmes en Révolution. Les femmes-patriotes et les femmes-soldats en Sarthe.', 'https://i.imgur.com/w7oSesb.png')">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #D35400, #F39C12); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
+                        N° 09<br>Les femmes en Révolution
                     </div>
                     <div class="carousel-title">N° 09 - Femmes</div>
                     <div class="carousel-price">2,00 €</div>
-                    <button class="btn btn-primary" style="margin-top: 0.5rem; padding: 0.3rem 0.8rem; font-size: 0.8rem;">Ajouter</button>
+                </div>
+
+                <div class="carousel-item" onclick="openLivretModal('N° 15 - Clergé', 'La Constitution civile du clergé et les prêtres réfractaires en Sarthe.', 'https://i.imgur.com/w7oSesb.png')">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #1B263B, #8B2635); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
+                        N° 15<br>La Constitution civile du clergé
+                    </div>
+                    <div class="carousel-title">N° 15 - Clergé</div>
+                    <div class="carousel-price">2,00 €</div>
+                </div>
+
+                <div class="carousel-item" onclick="openLivretModal('N° 18 - Sieyès', 'L\'abbé Sieyès en Révolution par la gravure du temps. Des États-Généraux à l\'Empire... en passant par la Sarthe où il n\'est jamais passé !', 'https://i.imgur.com/w7oSesb.png')">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #2E5A2E, #D4AF37); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
+                        N° 18<br>L'abbé Sieyès en Révolution
+                    </div>
+                    <div class="carousel-title">N° 18 - Sieyès</div>
+                    <div class="carousel-price">2,00 €</div>
+                </div>
+
+                <div class="carousel-item" onclick="openLivretModal('N° 26 - Déchristianisation', 'La déchristianisation de l\'an II. La déchirure en Sarthe.', 'https://i.imgur.com/w7oSesb.png')">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #C41E3A, #002654); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
+                        N° 26<br>La déchristianisation de l'an II
+                    </div>
+                    <div class="carousel-title">N° 26 - Déchristianisation</div>
+                    <div class="carousel-price">2,00 €</div>
+                </div>
+
+                <div class="carousel-item" onclick="openLivretModal('Château-du-Loir - Esclavage', 'L\'abolition de l\'esclavage sous la Révolution française. René Levasseur, auteur de la motion abolissant l\'esclavage le 16 pluviôse an II (4 février 1794).', 'https://i.imgur.com/w7oSesb.png')">
+                    <div class="carousel-cover" style="background: linear-gradient(135deg, #8B0000, #FFD700); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
+                        Château-du-Loir<br>L'abolition de l'esclavage
+                    </div>
+                    <div class="carousel-title">Château-du-Loir - Esclavage</div>
+                    <div class="carousel-price">2,00 €</div>
                 </div>
             </div>
             
@@ -850,31 +880,33 @@
     <section id="membre" class="member-section">
         <h2 class="section-title">Espace Membre</h2>
         <div class="member-features">
-            <div class="member-card locked" onclick="openModal('loginModal')">
-                <div class="member-icon">📹</div>
+            <div class="member-card locked" onclick="alert('Espace membre à venir')">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📹</div>
                 <h3>Conférences Replay</h3>
             </div>
-            <div class="member-card locked" onclick="openModal('loginModal')">
-                <div class="member-icon">📚</div>
+            <div class="member-card locked" onclick="alert('Espace membre à venir')">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📚</div>
                 <h3>Bibliothèque Numérique</h3>
             </div>
-            <div class="member-card locked" onclick="openModal('loginModal')">
-                <div class="member-icon">💬</div>
+            <div class="member-card locked" onclick="alert('Espace membre à venir')">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">💬</div>
                 <h3>Forum</h3>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer ROUGE -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>SARF - Club René Levasseur</h4>
                 <p>12 Rue de la Révolution<br>72000 Le Mans</p>
+                <p style="margin-top: 1rem;">📧 contact@sarf72.fr<br>📞 06 22 20 12 83</p>
             </div>
             <div class="footer-section">
-                <h4>Contact</h4>
-                <p>📧 contact@sarf72.fr<br>📞 06 22 20 12 83</p>
+                <h4>Liens utiles</h4>
+                <p><a href="#" style="color: var(--papier-age);">Mentions légales</a></p>
+                <p><a href="#" style="color: var(--papier-age);">Contact</a></p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -889,6 +921,13 @@
 
         function closeModal(modalId) {
             document.getElementById(modalId).classList.remove('active');
+        }
+
+        function openLivretModal(title, description, imageUrl) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDescription').textContent = description;
+            document.getElementById('modalImage').style.backgroundImage = `url('${imageUrl}')`;
+            openModal('livretModal');
         }
 
         function scrollCarousel(direction) {

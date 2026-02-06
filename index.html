@@ -15,11 +15,7 @@
             --bleu-nuit: #1B3A5F;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Libre Baskerville', serif;
@@ -32,66 +28,12 @@
         header {
             background: linear-gradient(135deg, var(--rouge-revolution) 0%, var(--rouge-fonce) 100%);
             color: white;
-            padding: 1rem 0;
-            position: relative;
+            padding: 1.5rem 0;
             border-bottom: 4px solid var(--or-ancien);
+            text-align: center;
         }
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo-section img {
-            height: 60px;
-            width: auto;
-        }
-
-        .logo-text h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.2rem;
-        }
-
-        .logo-text p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .mini-decor {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            opacity: 0.4;
-        }
-
-        .mini-decor.cocarde {
-            top: 15px;
-            right: 120px;
-            background: radial-gradient(circle, #E1000F 33%, #FFFFFF 33%, #FFFFFF 66%, #000091 66%);
-            border-radius: 50%;
-        }
-
-        .mini-decor.bonnet {
-            bottom: 15px;
-            right: 80px;
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 18px solid #E1000F;
-        }
+        .logo-text h1 { font-family: 'Cinzel', serif; font-size: 2rem; }
 
         nav {
             background: var(--rouge-fonce);
@@ -99,16 +41,11 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         nav ul {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
             gap: 2rem;
             list-style: none;
         }
@@ -118,67 +55,23 @@
             text-decoration: none;
             font-family: 'Cinzel', serif;
             font-size: 0.9rem;
-            transition: color 0.3s;
-            position: relative;
         }
 
-        nav a:hover {
-            color: var(--or-ancien);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--or-ancien);
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
+        nav a:hover { color: var(--or-ancien); }
 
         .hero {
-            background: linear-gradient(rgba(139, 38, 53, 0.85), rgba(92, 26, 35, 0.9)), url('https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200');
+            background: linear-gradient(rgba(139, 38, 53, 0.8), rgba(92, 26, 35, 0.85)), url('https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200');
             background-size: cover;
-            background-position: center;
-            color: white;
             padding: 6rem 2rem;
             text-align: center;
-            position: relative;
+            color: white;
         }
 
         .year-1789 {
             font-family: 'Playfair Display', serif;
-            font-size: 8rem;
-            font-weight: 900;
+            font-size: 6rem;
             color: var(--or-ancien);
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
             margin-bottom: 1rem;
-            letter-spacing: 10px;
-        }
-
-        .hero h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
         }
 
         .btn {
@@ -188,240 +81,81 @@
             color: var(--rouge-fonce);
             text-decoration: none;
             font-family: 'Cinzel', serif;
-            font-weight: 600;
+            font-weight: bold;
             border-radius: 4px;
-            transition: all 0.3s;
-            border: 2px solid var(--or-ancien);
+            margin-top: 1rem;
         }
 
-        .btn:hover {
-            background: transparent;
-            color: var(--or-ancien);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--or-ancien);
-            border: 2px solid var(--or-ancien);
-        }
-
-        .btn-outline:hover {
-            background: var(--or-ancien);
-            color: var(--rouge-fonce);
-        }
-
-        .presentation-section {
+        .section-content {
             max-width: 900px;
             margin: 4rem auto;
             padding: 0 2rem;
             text-align: center;
         }
 
-        .presentation-section h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            color: var(--rouge-revolution);
-            margin-bottom: 2rem;
-        }
-
-        .presentation-section p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        .adhesion-section {
-            max-width: 800px;
-            margin: 4rem auto;
-            padding: 3rem;
-            background: rgba(255, 255, 255, 0.9);
-            border: 3px double var(--or-ancien);
-            border-radius: 8px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .adhesion-section::before {
-            content: '❦';
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--papier-age);
-            padding: 0 1rem;
-            color: var(--or-ancien);
-            font-size: 2rem;
-        }
-
-        .adhesion-section h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 2rem;
-            color: var(--rouge-revolution);
-            margin-bottom: 1.5rem;
-        }
-
-        .adhesion-section p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
+        .levasseur-bio {
+            background: white;
+            padding: 2rem;
+            border: 2px solid var(--or-ancien);
+            margin-top: 2rem;
             text-align: left;
         }
 
-        .tarifs {
-            background: var(--rouge-revolution);
+        footer {
+            background: var(--encre-noire);
             color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            font-family: 'Cinzel', serif;
-        }
-
-        .tarifs strong {
-            color: var(--or-ancien);
-            font-size: 1.3rem;
-        }
-
-        .levasseur-section {
-            background: linear-gradient(135deg, var(--bleu-nuit) 0%, #0f2744 100%);
-            color: white;
-            padding: 4rem 2rem;
-            margin: 4rem 0;
-        }
-
-        .levasseur-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .levasseur-portrait {
+            padding: 2rem;
             text-align: center;
+            margin-top: 4rem;
         }
+    </style>
+</head>
+<body>
 
-        .levasseur-portrait img {
-            width: 100%;
-            max-width: 250px;
-            border-radius: 8px;
-            border: 4px solid var(--or-ancien);
-            margin-bottom: 1rem;
-        }
+<header>
+    <div class="logo-text">
+        <h1>SARF</h1>
+        <p>Club René Levasseur de la Sarthe</p>
+    </div>
+</header>
 
-        .levasseur-portrait h3 {
-            font-family: 'Cinzel', serif;
-            color: var(--or-ancien);
-            margin-bottom: 0.5rem;
-        }
+<nav>
+    <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Le Club</a></li>
+        <li><a href="#">René Levasseur</a></li>
+        <li><a href="#">Adhésion</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
 
-        .levasseur-portrait p {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
+<section class="hero">
+    <div class="year-1789">1789</div>
+    <h2>Liberté, Égalité, Fraternité</h2>
+    <p>Porter la voix de la raison et de la justice en Sarthe.</p>
+    <a href="#" class="btn">Rejoindre le Combat</a>
+</section>
 
-        .levasseur-bio h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 2rem;
-            color: var(--or-ancien);
-            margin-bottom: 1rem;
-        }
+<main class="section-content">
+    <h2>Bienvenue au Club Levasseur</h2>
+    <p>Notre association se consacre à l'étude et à la promotion des valeurs républicaines portées par René Levasseur, figure historique sarthoise de la Révolution.</p>
 
-        .levasseur-bio .quote {
-            font-style: italic;
-            color: var(--rouge-revolution);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-        }
+    <div class="levasseur-bio">
+        <h3>Qui était René Levasseur ?</h3>
+        <p>Né au Mans en 1747, ce médecin sarthois fut un député de la Convention nationale. Il s'est illustré par son intégrité et sa défense acharnée du peuple.</p>
+    </div>
 
-        .levasseur-bio p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
+    <section style="margin-top: 3rem; background: var(--rouge-revolution); color: white; padding: 2rem; border-radius: 8px;">
+        <h3>Prochain Congrès</h3>
+        <p>Rendez-vous les <strong>24 et 25 mai 2025</strong> au Mans.</p>
+        <a href="#" class="btn" style="background: white; color: var(--rouge-revolution);">S'inscrire</a>
+    </section>
+</main>
 
-        .timeline {
-            margin-top: 2rem;
-            padding-left: 2rem;
-            border-left: 3px solid var(--or-ancien);
-        }
+<footer>
+    <p>&copy; 2026 SARF - Club René Levasseur de la Sarthe</p>
+    <p style="font-size: 0.8rem; opacity: 0.6;">"La liberté ou la mort"</p>
+</footer>
 
-        .timeline-item {
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.4rem;
-            top: 0.5rem;
-            width: 15px;
-            height: 15px;
-            background: var(--rouge-revolution);
-            border-radius: 50%;
-            border: 3px solid var(--or-ancien);
-        }
-
-        .timeline-item h4 {
-            color: var(--or-ancien);
-            font-family: 'Cinzel', serif;
-            margin-bottom: 0.5rem;
-        }
-
-        .congres-section {
-            background: linear-gradient(135deg, var(--rouge-revolution) 0%, var(--rouge-fonce) 100%);
-            color: white;
-            padding: 4rem 2rem;
-            margin: 4rem 0;
-            position: relative;
-            border-top: 5px solid var(--or-ancien);
-            border-bottom: 5px solid var(--or-ancien);
-        }
-
-        .congres-section::before, .congres-section::after {
-            content: '⚜';
-            position: absolute;
-            font-size: 3rem;
-            color: var(--or-ancien);
-            opacity: 0.3;
-        }
-
-        .congres-section::before {
-            top: 20px;
-            left: 20px;
-        }
-
-        .congres-section::after {
-            bottom: 20px;
-            right: 20px;
-        }
-
-        .congres-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            border: 3px double var(--or-ancien);
-            padding: 3rem;
-            background: rgba(0,0,0,0.2);
-        }
-
-        .congres-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-bottom: 1rem;
-            color: var(--or-ancien);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .congres-content h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .congres-date {
-            font-size: 1.3rem;
-            background: var(--or-anc
+</body>
+</html>

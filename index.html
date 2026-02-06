@@ -4,158 +4,195 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SARF - Club René Levasseur de la Sarthe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@700;900&family=Libre+Baskerville&display=swap" rel="stylesheet">
     <style>
         :root {
-            --rouge-revolution: #8B2635;
-            --rouge-fonce: #5C1A23;
-            --or-ancien: #D4AF37;
-            --papier-age: #F5F1E8;
-            --encre-noire: #2C241B;
-            --bleu-nuit: #1B3A5F;
+            --rouge: #8B2635;
+            --rouge-f: #5C1A23;
+            --or: #D4AF37;
+            --papier: #F5F1E8;
+            --noir: #1a1a1a;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        /* ✅ Texture papier vieilli sur tout le corps */
         body {
-            font-family: 'Libre Baskerville', serif;
-            background-color: var(--papier-age);
+            background-color: var(--papier);
             background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
-            color: var(--encre-noire);
-            line-height: 1.6;
+            font-family: 'Libre Baskerville', serif;
+            color: var(--noir);
+            margin: 0;
+            scroll-behavior: smooth;
         }
 
+        /* Header avec Cocarde & Bonnet discret */
         header {
-            background: linear-gradient(135deg, var(--rouge-revolution) 0%, var(--rouge-fonce) 100%);
+            background: linear-gradient(to right, var(--rouge-f), var(--rouge));
             color: white;
-            padding: 1.5rem 0;
-            border-bottom: 4px solid var(--or-ancien);
-            text-align: center;
-        }
-
-        .logo-text h1 { font-family: 'Cinzel', serif; font-size: 2rem; }
-
-        nav {
-            background: var(--rouge-fonce);
-            padding: 0.8rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav ul {
+            padding: 1rem 5%;
+            border-bottom: 3px solid var(--or);
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            list-style: none;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-family: 'Cinzel', serif;
-            font-size: 0.9rem;
-        }
-
-        nav a:hover { color: var(--or-ancien); }
-
+        /* ✅ "1789" Spectaculaire avec effet Glow */
         .hero {
-            background: linear-gradient(rgba(139, 38, 53, 0.8), rgba(92, 26, 35, 0.85)), url('https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200');
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200');
             background-size: cover;
-            padding: 6rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
             color: white;
         }
 
         .year-1789 {
             font-family: 'Playfair Display', serif;
-            font-size: 6rem;
-            color: var(--or-ancien);
-            margin-bottom: 1rem;
+            font-size: 8rem;
+            color: var(--or);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+            margin: 0;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--or-ancien);
-            color: var(--rouge-fonce);
-            text-decoration: none;
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-            border-radius: 4px;
-            margin-top: 1rem;
-        }
-
-        .section-content {
-            max-width: 900px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-            text-align: center;
-        }
-
-        .levasseur-bio {
+        /* Section Congrès & Événements */
+        .congres-box {
             background: white;
-            padding: 2rem;
-            border: 2px solid var(--or-ancien);
-            margin-top: 2rem;
-            text-align: left;
+            border: 4px double var(--or);
+            padding: 3rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.8s ease-out;
         }
 
-        footer {
-            background: var(--encre-noire);
+        /* ✅ Animation au scroll */
+        .visible { transform: translateY(0); opacity: 1; }
+
+        /* Tarifs Adhésion */
+        .tarifs {
+            background: var(--rouge);
             color: white;
             padding: 2rem;
-            text-align: center;
-            margin-top: 4rem;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
+
+        /* ✅ Espace Membre avec simulation de code */
+        .espace-membre {
+            background: #1B3A5F; /* Bleu Nuit */
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .login-box {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border: 1px solid var(--or);
+            display: inline-block;
+        }
+
+        input { padding: 0.5rem; border: none; border-radius: 4px; }
+        
+        .btn-gold {
+            background: var(--or);
+            color: var(--rouge-f);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Galerie Photos Placeholder */
+        .galerie {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 2rem 0;
+        }
+        .photo-frame {
+            height: 200px;
+            background: #ddd;
+            border: 5px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-text">
-        <h1>SARF</h1>
-        <p>Club René Levasseur de la Sarthe</p>
-    </div>
+    <div><h1 style="font-family:'Cinzel'; margin:0;">Club René Levasseur</h1></div>
+    <nav>
+        <a href="#bio" style="color:white; margin:0 15px; text-decoration:none;">Histoire</a>
+        <a href="#evenements" style="color:white; margin:0 15px; text-decoration:none;">Événements</a>
+        <button class="btn-gold" onclick="alert('Accès réservé aux membres')">ESPACE MEMBRE</button>
+    </nav>
 </header>
 
-<nav>
-    <ul>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">Le Club</a></li>
-        <li><a href="#">René Levasseur</a></li>
-        <li><a href="#">Adhésion</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-</nav>
-
 <section class="hero">
-    <div class="year-1789">1789</div>
-    <h2>Liberté, Égalité, Fraternité</h2>
-    <p>Porter la voix de la raison et de la justice en Sarthe.</p>
-    <a href="#" class="btn">Rejoindre le Combat</a>
+    <p class="year-1789">1789</p>
+    <h2 style="font-family:'Cinzel'; font-size: 2.5rem;">LA SOCIÉTÉ DES AMIS DE LA RÉVOLUTION</h2>
+    <p><i>"Préserver la mémoire, éclairer le présent"</i></p>
 </section>
 
-<main class="section-content">
-    <h2>Bienvenue au Club Levasseur</h2>
-    <p>Notre association se consacre à l'étude et à la promotion des valeurs républicaines portées par René Levasseur, figure historique sarthoise de la Révolution.</p>
-
-    <div class="levasseur-bio">
-        <h3>Qui était René Levasseur ?</h3>
-        <p>Né au Mans en 1747, ce médecin sarthois fut un député de la Convention nationale. Il s'est illustré par son intégrité et sa défense acharnée du peuple.</p>
-    </div>
-
-    <section style="margin-top: 3rem; background: var(--rouge-revolution); color: white; padding: 2rem; border-radius: 8px;">
-        <h3>Prochain Congrès</h3>
-        <p>Rendez-vous les <strong>24 et 25 mai 2025</strong> au Mans.</p>
-        <a href="#" class="btn" style="background: white; color: var(--rouge-revolution);">S'inscrire</a>
+<main style="max-width: 1100px; margin: 0 auto; padding: 2rem;">
+    
+    <section id="bio" class="congres-box" id="scroll-box">
+        <h2 style="color:var(--rouge); text-align:center;">Pourquoi nous rejoindre ?</h2>
+        <p>Adhérer à la SARF, c'est soutenir une recherche historique indépendante et rigoureuse.</p>
+        <div class="tarifs">
+            <div><strong>Plein Tarif</strong><br><span style="font-size:2rem;">16€</span> / an</div>
+            <div><strong>Tarif Réduit</strong><br><span style="font-size:2rem;">4€</span> / an</div>
+        </div>
     </section>
+
+    <section class="congres-box" style="border-color: var(--rouge);">
+        <h2 style="text-align:center;">IVe CONGRÈS NATIONAL</h2>
+        <p style="text-align:center; font-size: 1.2rem;"><b>SEPTEMBRE 2026 - LE MANS</b></p>
+        <p>Le Conseil d'administration a répondu positivement à la sollicitation de Paul Chopelin (Société des études robespierristes).</p>
+    </section>
+
+    <h3 style="text-align:center; font-family:'Cinzel';">SOUVENIRS DES CONFÉRENCES</h3>
+    <div class="galerie">
+        <div class="photo-frame"></div><div class="photo-frame"></div><div class="photo-frame"></div>
+        <div class="photo-frame"></div><div class="photo-frame"></div><div class="photo-frame"></div>
+    </div>
 </main>
 
-<footer>
-    <p>&copy; 2026 SARF - Club René Levasseur de la Sarthe</p>
-    <p style="font-size: 0.8rem; opacity: 0.6;">"La liberté ou la mort"</p>
+<section class="espace-membre">
+    <h2>ESPACE MEMBRE SÉCURISÉ</h2>
+    <div class="login-box">
+        <p>Veuillez saisir votre code d'accès pour accéder au trombinoscope et à la bibliothèque numérique.</p>
+        <input type="password" placeholder="Code membre...">
+        <button class="btn-gold">VALIDER</button>
+    </div>
+</section>
+
+<footer style="background:var(--rouge-f); color:white; padding: 3rem; text-align:center;">
+    <p>12 Rue de la Révolution, 72000 Le Mans</p>
+    <p>&copy; 2026 SARF - Tous droits réservés</p>
 </footer>
+
+<script>
+    // ✅ Petit script pour l'animation au scroll
+    window.addEventListener('scroll', function() {
+        var boxes = document.querySelectorAll('.congres-box');
+        boxes.forEach(box => {
+            var position = box.getBoundingClientRect().top;
+            if(position < window.innerHeight - 100) {
+                box.classList.add('visible');
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

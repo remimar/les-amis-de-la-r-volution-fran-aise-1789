@@ -8,169 +8,187 @@
     <style>
         :root {
             --rouge: #8B2635;
-            --rouge-fonce: #5C1A23;
-            --or: #D4AF37;
-            --papier: #F5F1E8;
+            --rouge-noir: #4A1018;
+            --or: #C5A059;
             --encre: #2C241B;
-            --bleu-nuit: #1A2238;
+            --papier-antique: #F2E8D5;
         }
 
+        /* ✅ FOND STYLE PAPIER 1700 */
         body {
             font-family: 'Libre Baskerville', serif;
-            background-color: var(--papier);
-            background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+            background-color: var(--papier-antique);
+            background-image: url('https://www.transparenttextures.com/patterns/handmade-paper.png');
             color: var(--encre);
             margin: 0; padding: 0; scroll-behavior: smooth;
         }
 
-        /* --- HEADER --- */
         header {
-            background: linear-gradient(135deg, var(--rouge), var(--rouge-fonce));
-            color: white; padding: 1rem 0; border-bottom: 3px solid var(--or);
-            position: fixed; width: 100%; top: 0; z-index: 1000;
+            background: linear-gradient(to bottom, var(--rouge-noir), var(--rouge));
+            color: white; padding: 15px 0; border-bottom: 3px solid var(--or);
+            position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-        .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
-        nav a { color: white; text-decoration: none; font-family: 'Cinzel', serif; margin-left: 20px; font-size: 0.8rem; }
-        .btn-membre { background: var(--or); color: var(--rouge-fonce); padding: 5px 10px; border-radius: 3px; font-weight: bold; }
 
-        /* --- HERO --- */
         .hero {
             height: 70vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.imgur.com/IadHy6Z.jpeg') center/cover;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; margin-top: 60px;
-        }
-        .year-1789 { font-family: 'Cinzel', serif; font-size: 8rem; color: var(--or); text-shadow: 0 0 20px rgba(212, 175, 55, 0.8); margin: 0; }
-
-        section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
-        h2 { font-family: 'Cinzel', serif; text-align: center; color: var(--rouge); margin-bottom: 2rem; }
-
-        /* --- ESPACE LEVASSEUR (Correction Image) --- */
-        .section-dark { background: var(--bleu-nuit); color: white; border-top: 4px solid var(--or); border-bottom: 4px solid var(--or); }
-        .bio-container { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
-        .bio-img { 
-            border: 5px solid var(--or); 
-            width: 280px; height: 350px; 
-            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Ren%C3%A9_Levasseur.jpg/440px-Ren%C3%A9_Levasseur.jpg') center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; margin-top: 50px;
         }
 
-        /* --- CARROUSEL DES LIVRETS --- */
-        .carousel-container { position: relative; overflow: hidden; padding: 20px 0; }
-        .carousel-track { display: flex; gap: 20px; transition: transform 0.5s ease; }
-        .livret-card { 
-            min-width: 200px; background: white; padding: 10px; border: 1px solid #ddd; 
-            text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+        .year-1789 { font-family: 'Cinzel', serif; font-size: 8rem; color: var(--or); text-shadow: 0 0 25px rgba(197, 160, 89, 0.8); margin: 0; }
+        
+        section { padding: 5rem 2rem; max-width: 1100px; margin: auto; }
+        h2, h3 { font-family: 'Cinzel', serif; color: var(--rouge); text-align: center; }
+        .manuscrit { font-family: 'Dancing Script', cursive; font-size: 2.5rem; text-align: center; color: var(--rouge); }
+
+        /* ✅ POURQUOI NOUS REJOINDRE */
+        .motiv-box { background: rgba(255,255,255,0.3); padding: 2rem; border-left: 5px solid var(--rouge); font-style: italic; font-size: 1.1rem; box-shadow: 5px 5px 15px rgba(0,0,0,0.05); }
+
+        /* ✅ CONGRÈS SPECTACULAIRE */
+        .congres-box {
+            background: var(--rouge-noir); color: white; padding: 3rem; border: 10px double var(--or);
+            text-align: center; transform: rotate(-1deg); box-shadow: 0 0 30px rgba(0,0,0,0.4);
         }
-        .livret-card img { width: 100%; height: 260px; object-fit: cover; background: #eee; margin-bottom: 10px; }
-        .nav-car { 
-            position: absolute; top: 50%; transform: translateY(-50%); 
-            background: var(--rouge); color: white; border: none; padding: 15px; cursor: pointer; z-index: 10;
-        }
-        .prev { left: 0; } .next { right: 0; }
 
-        /* --- TARIFS & GALERIE --- */
-        .grid-tarifs { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .card-tarif { background: white; padding: 2rem; border: 2px solid var(--or); text-align: center; }
-        .galerie { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .photo-box { background: #ccc; height: 180px; border: 5px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        /* ✅ DERNIER ÉVÉNEMENT 4 FÉVRIER */
+        .event-souvenir { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; margin-top: 2rem; }
+        .photo-cadre { border: 10px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.2); transform: rotate(2deg); width: 100%; }
 
-        /* --- FOOTER ROUGE --- */
-        .footer-red { background: var(--rouge-fonce); color: white; padding: 3rem 2rem; margin-top: 4rem; }
-        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; max-width: 1000px; margin: auto; }
+        /* ✅ CARROUSEL LIVRETS */
+        .carousel-container { position: relative; overflow: hidden; padding: 20px; }
+        .carousel-track { display: flex; gap: 20px; transition: 0.5s; }
+        .livret-card { min-width: 180px; background: white; padding: 10px; border: 1px solid #ccc; text-align: center; transform: rotate(-2deg); }
+        .livret-card img { width: 100%; height: 240px; object-fit: cover; }
 
-        @media (max-width: 768px) { .grid-tarifs, .galerie, .footer-grid { grid-template-columns: 1fr; } .year-1789 { font-size: 4rem; } }
+        /* ✅ SITES AMIS AVEC LOGOS */
+        .sites-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; text-align: center; }
+        .site-logo { width: 80px; height: 80px; background: #ddd; border-radius: 50%; margin: auto; border: 2px solid var(--or); transition: 0.3s; filter: grayscale(100%); }
+        .site-logo:hover { filter: grayscale(0%); transform: scale(1.1); }
+
+        /* ✅ ESPACE MEMBRE */
+        #page-membre { display: none; background: white; padding: 3rem; border: 2px solid var(--encre); margin-top: 2rem; }
+        .trombinoscope { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .membre-card { text-align: center; border-bottom: 1px dashed #ccc; padding-bottom: 10px; }
+
+        footer { background: var(--rouge-noir); color: white; padding: 4rem 2rem; text-align: center; }
+        .btn-gold { background: var(--or); color: white; border: none; padding: 15px 30px; font-family: 'Cinzel'; cursor: pointer; border-radius: 5px; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="header-content">
-            <div style="font-family: 'Cinzel'; color: var(--or);">SARF SARTHE</div>
+        <div style="display: flex; justify-content: space-around; align-items: center;">
+            <div style="font-family: 'Cinzel'; font-weight: bold; color: var(--or);">SARF SARTHE</div>
             <nav>
-                <a href="#bio">LEVASSEUR</a>
-                <a href="#publications">LIBRAIRIE</a>
-                <a href="#evenements">ÉVÉNEMENTS</a>
-                <a href="#adhesion" class="btn-membre">ACCÈS MEMBRE</a>
+                <a href="#join" style="color:white; text-decoration:none; margin:0 10px;">ADHERER</a>
+                <a href="#congres" style="color:white; text-decoration:none; margin:0 10px;">CONGRES 2026</a>
+                <a href="#publications" style="color:white; text-decoration:none; margin:0 10px;">LIBRAIRIE</a>
+                <button onclick="document.getElementById('login').scrollIntoView()" class="btn-gold" style="padding:5px 10px;">MEMBRES</button>
             </nav>
         </div>
     </header>
 
     <div class="hero">
         <div class="year-1789">1789</div>
-        <h1 style="font-family: 'Cinzel';">SOCIÉTÉ DES AMIS DE LA RÉVOLUTION FRANÇAISE</h1>
-        <p style="font-family: 'Dancing Script'; font-size: 2rem;">Club René Levasseur de la Sarthe</p>
+        <h1 style="font-family: 'Cinzel'; letter-spacing: 5px;">SOCIÉTÉ DES AMIS DE LA RÉVOLUTION FRANÇAISE</h1>
+        <p class="manuscrit" style="color: white;">"La Sarthe, terre de Liberté"</p>
     </div>
 
-    <section id="bio" class="section-dark">
-        <h2>ESPACE RENÉ LEVASSEUR</h2>
-        <div class="bio-container">
-            <div class="bio-img"></div>
-            <div style="flex: 1;">
-                <h3 style="color: var(--or); font-family: 'Cinzel';">UN CONVENTIONNEL DE LA SARTHE</h3>
-                <p><i>"Un éternel prédicateur de révoltes"</i></p>
-                <p>René Levasseur (1747-1834) fut député de la Sarthe à la Convention. Il siégea à la Montagne et fut un ami fidèle de Robespierre.</p>
-                <p>Il est l'un des pères de <b>l'abolition de l'esclavage</b> votée le 4 février 1794.</p>
+    <section id="join">
+        <h2>Pourquoi nous rejoindre ?</h2>
+        <div class="motiv-box">
+            "Rejoindre la SARF, ce n'est pas seulement étudier le passé, c'est faire vivre les idéaux de René Levasseur au XXIe siècle. Nous luttons contre l'oubli, nous publions des recherches inédites et nous formons une communauté de passionnés qui refusent de voir s'éteindre la flamme de la République. Votre adhésion est notre seule force."
+        </div>
+        <div style="display: flex; justify-content: space-around; margin-top: 3rem;">
+            <div style="text-align:center;"><h3>Tarif Citoyen</h3><p style="font-size:3rem; color:var(--rouge);">16€</p></div>
+            <div style="text-align:center;"><h3>Tarif Solidaire</h3><p style="font-size:3rem; color:var(--rouge);">4€</p></div>
+        </div>
+    </section>
+
+    <section id="congres">
+        <div class="congres-box">
+            <h2 style="color: var(--or); margin:0;">ÉVÉNEMENT NATIONAL</h2>
+            <h3 style="color: white; font-size: 2.5rem;">IVe CONGRÈS DES SITES AMIS</h3>
+            <p class="manuscrit" style="color: var(--or);">Septembre 2026 - LE MANS</p>
+            <hr style="border-color: var(--or);">
+            <p>Une réunion historique sous la présidence d'honneur de Paul Chopelin. La France révolutionnaire a rendez-vous dans la Sarthe.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="manuscrit">Se remémorer... le 4 Février passé</h2>
+        <div class="event-souvenir">
+            <img src="https://i.imgur.com/IadHy6Z.jpeg" class="photo-cadre" alt="Souvenir">
+            <div>
+                <h3>Cérémonie de l'Abolition</h3>
+                <p>Nous nous sommes réunis au Cimetière de l'Ouest pour honorer la mémoire de René Levasseur et son combat contre l'esclavage. Un moment d'émotion et de recueillement fidèle à nos engagements depuis 2011.</p>
+                <p><i>"Le souvenir est le gardien de la liberté."</i></p>
             </div>
         </div>
     </section>
 
     <section id="publications">
-        <h2>NOTRE LIBRAIRIE (2€ le livret)</h2>
-        <p style="text-align: center;">Découvrez nos 37 livrets thématiques issus de nos conférences.</p>
-        
+        <h2>Les 37 Livrets de la SARF</h2>
         <div class="carousel-container">
-            <button class="nav-car prev" onclick="moveSlide(-1)">❮</button>
             <div class="carousel-track" id="track">
-                <div class="livret-card"><img src="https://i.imgur.com/8N4N5Yv.jpeg" alt="N05"><strong>N°05 - Cinéma</strong></div>
-                <div class="livret-card"><img src="https://i.imgur.com/lMvQ8u9.jpeg" alt="N06"><strong>N°06 - Doléances</strong></div>
-                <div class="livret-card"><img src="https://i.imgur.com/rXmXyE9.jpeg" alt="N07"><strong>N°07 - République</strong></div>
-                <div class="livret-card"><img src="https://i.imgur.com/pZz8XwD.jpeg" alt="N08"><strong>N°08 - Babeuf</strong></div>
-                <div class="livret-card"><img src="https://via.placeholder.com/200x260?text=Livret+Suivant" alt="N09"><strong>N°09 - Histoire</strong></div>
+                <div class="livret-card"><img src="https://via.placeholder.com/180x240" alt="L1"><strong>N°37 - 2025</strong></div>
+                <div class="livret-card"><img src="https://via.placeholder.com/180x240" alt="L2"><strong>N°36 - 2024</strong></div>
+                <div class="livret-card"><img src="https://via.placeholder.com/180x240" alt="L3"><strong>N°35 - Robespierre</strong></div>
+                <div class="livret-card"><img src="https://via.placeholder.com/180x240" alt="L4"><strong>N°34 - Sarthe</strong></div>
+                <div class="livret-card"><img src="https://via.placeholder.com/180x240" alt="L5"><strong>N°33 - Droits</strong></div>
             </div>
-            <button class="nav-car next" onclick="moveSlide(1)">❯</button>
         </div>
+        <p style="text-align:center;">(Faites glisser pour voir la collection complète)</p>
     </section>
 
-    <section id="adhesion">
-        <h2>ADHÉSION 2026</h2>
-        <div class="grid-tarifs">
-            <div class="card-tarif"><h3>Tarif Normal</h3><p style="font-size: 2.5rem; color: var(--rouge);">16€</p></div>
-            <div class="card-tarif"><h3>Tarif Réduit</h3><p style="font-size: 2.5rem; color: var(--rouge);">4€</p></div>
-        </div>
-
-        <h2 style="margin-top: 4rem;">GALERIE SOUVENIRS</h2>
-        <div class="galerie">
-            <div class="photo-box"></div><div class="photo-box"></div><div class="photo-box"></div>
-            <div class="photo-box"></div><div class="photo-box"></div><div class="photo-box"></div>
-        </div>
+    <section>
+        <h2>Nos 13 Sites Amis</h2>
+        <div class="sites-grid">
+            <a href="https://ser.hypotheses.org/" target="_blank" style="text-decoration:none; color:inherit;">
+                <div class="site-logo"></div><small>SER</small>
+            </a>
+            <a href="#" target="_blank" style="text-decoration:none; color:inherit;">
+                <div class="site-logo"></div><small>Libre Pensée 72</small>
+            </a>
+            </div>
     </section>
 
-    <footer class="footer-red">
-        <div class="footer-grid">
-            <div>
-                <p><b>SARF - CLUB RENÉ LEVASSEUR</b></p>
-                <p>12 Rue de la Révolution, 72000 Le Mans</p>
-                <p>📧 contact@sarf72.fr</p>
-            </div>
-            <div style="text-align: right;">
-                <p><a href="#" style="color: white;">Mentions légales</a></p>
-                <p><a href="#" style="color: white;">Contact</a></p>
-            </div>
+    <section id="login" style="background: rgba(0,0,0,0.05); text-align:center;">
+        <h2>Accès Membre</h2>
+        <p>Entrez la date de naissance complète de René Levasseur (JJMMAAAA) :</p>
+        <input type="text" id="pass" style="padding:10px; font-size:1.5rem; text-align:center; border:2px solid var(--or);">
+        <br><br>
+        <button onclick="checkPass()" class="btn-gold">OUVRIR LES ARCHIVES</button>
+    </section>
+
+    <div id="page-membre">
+        <h2 class="manuscrit">Bienvenue dans l'Espace Privé</h2>
+        <hr>
+        <h3>Trombinoscope du Club</h3>
+        <div class="trombinoscope">
+            <div class="membre-card"><div class="site-logo"></div><p>Président</p></div>
+            <div class="membre-card"><div class="site-logo"></div><p>Secrétaire</p></div>
+            <div class="membre-card"><div class="site-logo"></div><p>Trésorier</p></div>
         </div>
-        <p style="text-align: center; margin-top: 2rem; opacity: 0.6;">© 2026 SARF SARTHE</p>
+        <h3>Historique depuis 2011</h3>
+        <p>Retrouvez ici tous les compte-rendus de nos assemblées générales et les photos inédites de nos sorties historiques dans la Sarthe.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 SARF SARTHE - Club René Levasseur</p>
+        <p>12 Rue de la Révolution, Le Mans</p>
     </footer>
 
     <script>
-        let currentPos = 0;
-        function moveSlide(direction) {
-            const track = document.getElementById('track');
-            const cardWidth = 220; // Largeur livret + gap
-            currentPos += direction * cardWidth;
-            
-            // Limites simples
-            if (currentPos > 0) currentPos = 0;
-            if (currentPos < -800) currentPos = -800; 
-
-            track.style.transform = `translateX(${currentPos}px)`;
+        function checkPass() {
+            const pass = document.getElementById('pass').value;
+            if(pass === "27051747") {
+                document.getElementById('page-membre').style.display = 'block';
+                document.getElementById('page-membre').scrollIntoView();
+                alert("Accès Citoyen Accordé !");
+            } else {
+                alert("Date incorrecte. Cherchez bien dans l'histoire de René...");
+            }
         }
     </script>
 </body>

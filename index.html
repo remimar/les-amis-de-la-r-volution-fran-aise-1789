@@ -23,25 +23,40 @@
         }
 
         nav { background: var(--bois-sombre); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--or-vieux); }
-        nav a { color: var(--or-ombré); text-decoration: none; margin: 0 12px; font-family: 'Cinzel'; font-size: 0.8rem; cursor: pointer; }
+        nav a { color: var(--or-ombré); text-decoration: none; margin: 0 15px; font-family: 'Cinzel'; font-size: 0.85rem; cursor: pointer; transition: 0.3s; }
+        nav a:hover { color: white; }
 
         .hero {
-            height: 40vh;
+            height: 45vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.imgur.com/IadHy6Z.jpeg') center/cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; color: white; border-bottom: 5px solid var(--or-vieux);
         }
 
-        section { max-width: 1150px; margin: auto; padding: 40px 20px; }
+        section { max-width: 1200px; margin: auto; padding: 40px 20px; }
+
+        .cadre-tableau {
+            border: 12px solid var(--bois-sombre); outline: 2px solid var(--or-vieux); outline-offset: -8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6); background: var(--rouge-royal);
+            color: #f1e4d1; padding: 40px; text-align: center; margin-bottom: 50px;
+        }
 
         .carousel-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; scroll-behavior: smooth; }
-        
-        /* Style des Livres & Hors-Séries */
-        .livre-card { flex: 0 0 250px; background: #fff; padding: 15px; border: 8px solid var(--or-vieux); text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: transform 0.3s; }
-        .livre-card:hover { transform: translateY(-5px); }
-        .livre-card img { width: 100%; height: 340px; object-fit: cover; border-bottom: 1px solid #eee; }
-        .livre-card h4 { font-family: 'Cinzel'; font-size: 0.85rem; margin: 12px 0; color: var(--rouge-royal); min-height: 70px; display: flex; align-items: center; justify-content: center; line-height: 1.4; }
-        .livre-card p { font-weight: bold; color: #2c1e14; font-size: 1.1rem; }
+        .carousel-container::-webkit-scrollbar { height: 8px; }
+        .carousel-container::-webkit-scrollbar-thumb { background: var(--or-vieux); border-radius: 10px; }
+
+        /* Style Livrets */
+        .livret-card { flex: 0 0 180px; background: #fff; padding: 10px; border: 4px solid var(--bois-sombre); text-align: center; box-shadow: 3px 3px 10px rgba(0,0,0,0.2); }
+        .livret-card img { width: 100%; height: 250px; object-fit: cover; border-bottom: 1px solid #eee; }
+        .livret-card p { font-size: 0.75rem; margin: 10px 0; font-weight: bold; height: 55px; display: flex; align-items: center; justify-content: center; line-height: 1.2; }
+
+        /* Style Ouvrages */
+        .livre-card { flex: 0 0 260px; background: #fff; padding: 15px; border: 8px solid var(--or-vieux); text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .livre-card img { width: 100%; height: 350px; object-fit: cover; }
+        .livre-card h4 { font-family: 'Cinzel'; font-size: 0.85rem; margin: 12px 0; color: var(--rouge-royal); min-height: 70px; display: flex; align-items: center; justify-content: center; }
+
+        .login-section { text-align: center; padding: 50px; background: rgba(0,0,0,0.05); border-top: 2px solid var(--or-vieux); }
+        .login-section input { padding: 10px; border: 2px solid var(--or-vieux); font-family: 'Cinzel'; }
 
         footer { background: #1a1a1a; color: #d4af37; padding: 30px; text-align: center; font-family: 'Cinzel'; border-top: 4px solid var(--or-vieux); }
     </style>
@@ -49,66 +64,91 @@
 <body>
 
     <nav>
-        <a href="#librairie">LA LIBRAIRIE</a>
-        <a href="#contact">COMMANDER</a>
+        <a href="#congres">CONGRÈS 2026</a>
+        <a href="#livrets">LES LIVRETS</a>
+        <a href="#ouvrages">OUVRAGES & HORS-SÉRIE</a>
+        <a href="#login">ACCÈS MEMBRE</a>
     </nav>
 
     <div class="hero">
-        <h1 style="font-family:'Cinzel'; font-size: 4rem; color:#d4af37; margin:0;">SARF SARTHE</h1>
-        <p style="font-family:'Dancing Script'; font-size: 2rem;">Librairie du Club René Levasseur</p>
+        <h1 style="font-family:'Cinzel'; font-size: 5rem; color:#d4af37; margin:0; text-shadow: 2px 2px 10px rgba(0,0,0,0.8);">SARF</h1>
+        <p style="font-family:'Dancing Script'; font-size: 2.5rem;">Club René Levasseur de la Sarthe</p>
     </div>
 
-    <section id="librairie">
-        <h2 style="font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal); font-size: 2.5rem; margin-bottom: 40px;">Ouvrages & Hors-Séries</h2>
-
-        <div class="carousel-container">
-            
-            <div class="livre-card">
-                <img src="https://i.imgur.com/2xlUTPY.jpeg">
-                <h4>Registre des délibérations de la Société des Amis de la Constitution du Mans 1790-1792</h4>
-                <p>16 €</p>
-            </div>
-
-            <div class="livre-card">
-                <img src="https://i.imgur.com/mZ4yibA.jpeg">
-                <h4>MÉMOIRES DE R. LEVASSEUR (DE LA SARTHE) 1831 (tome 1 et 2)</h4>
-                <p>15 €</p>
-            </div>
-
-            <div class="livre-card">
-                <img src="https://i.imgur.com/SIGJoQQ.jpeg">
-                <h4>MÉMOIRES DE R. LEVASSEUR (DE LA SARTHE) 1831 (tome 3 et 4)</h4>
-                <p>15 €</p>
-            </div>
-
-            <div class="livre-card">
-                <img src="https://i.imgur.com/aW5ptfD.jpeg">
-                <h4>Hors série N° 1<br>L’AN 1 DE LA LIBERTÉ</h4>
-                <p>4 €</p>
-            </div>
-
-            <div class="livre-card">
-                <img src="https://i.imgur.com/bHsZ84b.jpeg">
-                <h4>Hors série N° 2<br>LA RÉVOLUTION FRANÇAISE EN CHANSONS</h4>
-                <p>12 €</p>
-            </div>
-
-            <div class="livre-card">
-                <img src="https://i.imgur.com/ao7mOex.jpeg">
-                <h4>Hors série N° 3<br>René LEVASSEUR à la Bataille d'Hondschoote le 8 septembre 1793</h4>
-                <p>12 €</p>
-            </div>
-
-            <div class="livre-card">
-                <img src="https://i.imgur.com/SLXVemE.jpeg">
-                <h4>Hors série N° 4<br>A propos de l'article sur RENÉ LEVASSEUR</h4>
-                <p>4 €</p>
-            </div>
-
+    <section id="congres">
+        <div class="cadre-tableau">
+            <h2 style="font-family: 'Cinzel'; color: var(--or-ombré); margin: 0;">CONGRÈS NATIONAL 2026</h2>
+            <p style="font-family: 'Cinzel'; font-size: 1.5rem;">AU MANS • SEPTEMBRE 2026</p>
         </div>
     </section>
 
-    <footer><p>SARF SARTHE - Club René Levasseur</p></footer>
+    <section id="livrets">
+        <h2 style="font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal); font-size: 2.5rem; margin-bottom: 30px;">Les Livrets de Recherche</h2>
+        <div class="carousel-container">
+            <div class="livret-card"><img src="https://i.imgur.com/f3Ht4CD.jpeg"><p>N°1 - LA RÉVOLUTION FRANÇAISE Une histoire toujours vivante</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/6xdEdhT.jpeg"><p>N°2 - LES GUERRES CIVILES DANS L'OUEST</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/TdL2coI.jpeg"><p>N°4 - LES JOURNÉES INSURRECTIONNELLES DE JUILLET 1789</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/eRrP2GY.jpeg"><p>N°5 - LA RÉVOLUTION FRANÇAISE AU CINÉMA</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/Ph93KRp.jpeg"><p>N°6 - DOLÉANCES DE SAINT-MICHEL DE CHAVAIGNE</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/3SmDYVw.jpeg"><p>N°7 - LA FONDATION DE LA RÉPUBLIQUE 1792-2012</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/L4ZVyNf.jpeg"><p>N°8 - BABEUF : DE L'UTOPIE À LA CONSPIRATION</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/sn3leE7.jpeg"><p>N°9 - LES FEMMES EN RÉVOLUTION</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/Hha4V4v.jpeg"><p>N°10 - LEVASSEUR : FACE À L'ARISTOCRATIE DE L'ÉPIDERME</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/uwbeGlU.jpeg"><p>N°11 - 1793 LE MANS / OSSEMENTS DES JACOBINS</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/J7kXA5T.jpeg"><p>N°12 - RENÉ LEVASSEUR ET LE MAINE-ET-LOIRE</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/pxQVuRQ.jpeg"><p>N°13 - ABOLITION DE L’ESCLAVAGE 1794-2014</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/ibsQvey.jpeg"><p>N°14 - L'ABOLITION DANS L’ICONOGRAPHIE</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/FBBmDTn.jpeg"><p>N°15 - LA CONSTITUTION CIVILE DU CLERGÉ</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/4FRRCYr.jpeg"><p>N°16 - VARENNES : L'AGONIE DE LA MONARCHIE</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/nS8Kl8O.jpeg"><p>N°17 - BOUTROUË & DOLÉANCES DE GRÈES</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/xyQUp7W.jpeg"><p>N°18 - L'ABBÉ SIEYES EN RÉVOLUTION</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/giNICLk.jpeg"><p>N°19 - ROBESPIERRE</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/BFmOUNf.jpeg"><p>N°20 - LA RÉVOLUTION FRANÇAISE ET LA GUERRE</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/xI0YZh0.jpeg"><p>N°21 - MARAT L'AMI DU PEUPLE</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/R73EM3q.jpeg"><p>N°22 - LE CALENDRIER À L'HEURE DE LA SCIENCE</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/2FwVCH9.jpeg"><p>N°23 - DOLÉANCES DE NEUVILLALAIS ET DE CONLIE</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/7JJYnj6.jpeg"><p>N°24 - LEVASSEUR : MISSION CONTRE LES VENDÉENS</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/862e5Gn.jpeg"><p>N°25 - LES FÊTES RÉVOLUTIONNAIRES</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/cJ0Es30.jpeg"><p>N°26 - LA DÉCHRISTIANISATION DE L'AN II</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/YNbADV7.jpeg"><p>N°27 - VENDÉE, CHOUANNERIES : DEUX DESTINÉES</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/PErARoO.jpeg"><p>N°28 - DANTON & PHILIPPEAUX</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/LYwmyR9.jpeg"><p>N°29 - PEUPLE EN ARMES & GARDE NATIONALE</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/vl8WUFp.jpeg"><p>N°30 - 1792 LA SECONDE RÉVOLUTION FRANÇAISE</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/zltOojJ.jpeg"><p>N°31 - FEMME, ACTRICE DE LA RÉVOLUTION & COMMUNE</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/zdWK0RQ.jpeg"><p>N°32 - ABOLITION ESCLAVAGE / RAPHAËL ÉLIZÉ</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/DWagFbu.jpeg"><p>N°33 - LA RÉVOLUTION DANS LES SCIENCES</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/Qfqm4t7.jpeg"><p>N°34 - LES ENRAGÉS AU MASCULIN & FÉMININ</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/AcESaQO.jpeg"><p>N°35 - DÉPUTÉS COMMISSIONNAIRES & HONDSCHOOTE</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/6NGmYt7.jpeg"><p>N°36 - LE MANCEAU JACQUES-RIGOMER BAZIN</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/mdQJfZP.jpeg"><p>N°37 - SÉPARATION ÉGLISE / ÉTAT / ÉCOLE</p></div>
+        </div>
+    </section>
 
+    <section id="ouvrages">
+        <h2 style="font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal); font-size: 2.5rem; margin-bottom: 30px;">Ouvrages & Hors-Séries</h2>
+        <div class="carousel-container">
+            <div class="livre-card"><img src="https://i.imgur.com/2xlUTPY.jpeg"><h4>Registre des délibérations de la Société des Amis de la Constitution du Mans 1790-1792</h4></div>
+            <div class="livre-card"><img src="https://i.imgur.com/mZ4yibA.jpeg"><h4>MÉMOIRES DE R. LEVASSEUR (DE LA SARTHE) 1831 (tome 1 et 2)</h4></div>
+            <div class="livre-card"><img src="https://i.imgur.com/SIGJoQQ.jpeg"><h4>MÉMOIRES DE R. LEVASSEUR (DE LA SARTHE) 1831 (tome 3 et 4)</h4></div>
+            <div class="livre-card"><img src="https://i.imgur.com/aW5ptfD.jpeg"><h4>Hors série N° 1<br>L’AN 1 DE LA LIBERTÉ</h4></div>
+            <div class="livre-card"><img src="https://i.imgur.com/bHsZ84b.jpeg"><h4>Hors série N° 2<br>LA RÉVOLUTION FRANÇAISE EN CHANSONS</h4></div>
+            <div class="livre-card"><img src="https://i.imgur.com/ao7mOex.jpeg"><h4>Hors série N° 3<br>René LEVASSEUR à la Bataille d'Hondschoote</h4></div>
+            <div class="livre-card"><img src="https://i.imgur.com/SLXVemE.jpeg"><h4>Hors série N° 4<br>À propos de l'article sur RENÉ LEVASSEUR</h4></div>
+        </div>
+    </section>
+
+    <div id="login" class="login-section">
+        <h3 style="font-family:'Cinzel';">ESPACE MEMBRE</h3>
+        <input type="password" id="pass" placeholder="Code secret">
+        <button onclick="checkPass()" style="padding:10px 20px; background:var(--bois-sombre); color:white; border:none; cursor:pointer; font-family:'Cinzel';">VALIDER</button>
+    </div>
+
+    <footer>
+        <p>SARF SARTHE - Club René Levasseur • 2026</p>
+    </footer>
+
+    <script>
+        function checkPass() { if(document.getElementById('pass').value === "26051747") { alert("Accès autorisé !"); } else { alert("Code incorrect"); } }
+    </script>
 </body>
 </html>

@@ -32,17 +32,16 @@
             text-align: center; color: white; border-bottom: 5px solid var(--or-vieux);
         }
 
-        section { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        section { max-width: 1150px; margin: auto; padding: 40px 20px; }
 
         .carousel-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; scroll-behavior: smooth; }
         
-        /* Style des Livres (2ème carrousel) */
-        .livre-card { flex: 0 0 240px; background: #fff; padding: 15px; border: 8px solid var(--or-vieux); text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-        .livre-card img { width: 100%; height: 330px; object-fit: cover; border-bottom: 1px solid #eee; }
-        .livre-card h4 { font-family: 'Cinzel'; font-size: 0.85rem; margin: 10px 0; color: var(--rouge-royal); min-height: 60px; display: flex; align-items: center; justify-content: center; }
-        .livre-card p { font-weight: bold; color: #2c1e14; margin-top: 5px; }
-
-        .login-section { text-align: center; padding: 40px; background: rgba(0,0,0,0.05); margin-top: 50px; }
+        /* Style des Livres & Hors-Séries */
+        .livre-card { flex: 0 0 250px; background: #fff; padding: 15px; border: 8px solid var(--or-vieux); text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: transform 0.3s; }
+        .livre-card:hover { transform: translateY(-5px); }
+        .livre-card img { width: 100%; height: 340px; object-fit: cover; border-bottom: 1px solid #eee; }
+        .livre-card h4 { font-family: 'Cinzel'; font-size: 0.85rem; margin: 12px 0; color: var(--rouge-royal); min-height: 70px; display: flex; align-items: center; justify-content: center; line-height: 1.4; }
+        .livre-card p { font-weight: bold; color: #2c1e14; font-size: 1.1rem; }
 
         footer { background: #1a1a1a; color: #d4af37; padding: 30px; text-align: center; font-family: 'Cinzel'; border-top: 4px solid var(--or-vieux); }
     </style>
@@ -50,42 +49,41 @@
 <body>
 
     <nav>
-        <a href="#librairie">LIBRAIRIE</a>
-        <a href="#login">ACCÈS MEMBRE</a>
+        <a href="#librairie">LA LIBRAIRIE</a>
+        <a href="#contact">COMMANDER</a>
     </nav>
 
     <div class="hero">
         <h1 style="font-family:'Cinzel'; font-size: 4rem; color:#d4af37; margin:0;">SARF SARTHE</h1>
-        <p style="font-family:'Dancing Script'; font-size: 2rem;">Club René Levasseur</p>
+        <p style="font-family:'Dancing Script'; font-size: 2rem;">Librairie du Club René Levasseur</p>
     </div>
 
     <section id="librairie">
-        <h2 style="font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal); font-size: 2.5rem;">La Librairie</h2>
+        <h2 style="font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal); font-size: 2.5rem; margin-bottom: 40px;">Ouvrages & Hors-Séries</h2>
 
-        <h3 style="font-family: 'Cinzel'; border-bottom: 2px solid var(--or-vieux); padding-bottom: 10px; margin-top: 40px;">Livres & Ouvrages Hors-Série</h3>
         <div class="carousel-container">
             
             <div class="livre-card">
                 <img src="https://i.imgur.com/2xlUTPY.jpeg">
-                <h4>Registre des délibérations de la Société des Amis de la Constitution du Mans (Tome 1)</h4>
+                <h4>Registre des délibérations de la Société des Amis de la Constitution du Mans 1790-1792</h4>
                 <p>16 €</p>
             </div>
 
             <div class="livre-card">
                 <img src="https://i.imgur.com/mZ4yibA.jpeg">
-                <h4>Registre des délibérations de la Société des Amis de la Constitution du Mans (Tome 2)</h4>
-                <p>16 €</p>
+                <h4>MÉMOIRES DE R. LEVASSEUR (DE LA SARTHE) 1831 (tome 1 et 2)</h4>
+                <p>15 €</p>
             </div>
 
             <div class="livre-card">
                 <img src="https://i.imgur.com/SIGJoQQ.jpeg">
-                <h4>MÉMOIRES DE R. LEVASSEUR (DE LA SARTHE) EX-CONVENTIONNEL 1831 tome 3 et 4</h4>
+                <h4>MÉMOIRES DE R. LEVASSEUR (DE LA SARTHE) 1831 (tome 3 et 4)</h4>
                 <p>15 €</p>
             </div>
 
             <div class="livre-card">
                 <img src="https://i.imgur.com/aW5ptfD.jpeg">
-                <h4>Hors série N° 1<br>L’AMI DE LA LIBERTÉ</h4>
+                <h4>Hors série N° 1<br>L’AN 1 DE LA LIBERTÉ</h4>
                 <p>4 €</p>
             </div>
 
@@ -97,7 +95,7 @@
 
             <div class="livre-card">
                 <img src="https://i.imgur.com/ao7mOex.jpeg">
-                <h4>Hors série N° 3<br>René LEVASSEUR à la Bataille d'Hondschoote</h4>
+                <h4>Hors série N° 3<br>René LEVASSEUR à la Bataille d'Hondschoote le 8 septembre 1793</h4>
                 <p>12 €</p>
             </div>
 
@@ -110,16 +108,7 @@
         </div>
     </section>
 
-    <div id="login" class="login-section">
-        <p style="font-family: 'Cinzel';">ACCÈS MEMBRE</p>
-        <input type="password" id="pass" placeholder="Code">
-        <button onclick="checkPass()">VALIDER</button>
-    </div>
-
     <footer><p>SARF SARTHE - Club René Levasseur</p></footer>
 
-    <script>
-        function checkPass() { if(document.getElementById('pass').value === "26051747") { alert("Bienvenue !"); } else { alert("Code incorrect"); } }
-    </script>
 </body>
 </html>
